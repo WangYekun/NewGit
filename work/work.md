@@ -6,3 +6,5 @@
 > work is hard, you can do it and solve it.Because of you can do it.
 
 > in life, improve yourself and you must bu keep your intive.
+
+> in weekday, enjoy your life and smile.This is ok.
