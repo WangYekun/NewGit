@@ -1,4 +1,4 @@
-﻿package com.imooc.mvcdemo.service.impl;
+package com.imooc.mvcdemo.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +13,7 @@ import com.imooc.mvcdemo.service.CourseService;
 @Service("courseService")
 public class CourseServiceImpl implements CourseService {
 
+	@Override
 	public Course getCoursebyId(Integer courseId) {
 		
 		Course course = new Course();
@@ -23,7 +24,7 @@ public class CourseServiceImpl implements CourseService {
 		course.setLearningNum(12345);
 		course.setLevel(2);
 		course.setLevelDesc("中级");
-		course.setDuration(7200l);
+		course.setDuration(7200L);
 		course.setDescr("多线程是日常开发中的常用知识，也是难用知识。bala bala...");
 		
 		List<Chapter> chapterList = new ArrayList<Chapter>();
