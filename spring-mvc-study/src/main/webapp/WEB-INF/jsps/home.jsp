@@ -8,6 +8,5 @@
 </head>
 <body>
 Hello Spring MVC!
-Here is iMooc!
 </body>
 </html>
