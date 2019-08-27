@@ -19,8 +19,6 @@ public class Course2 {
 	private String levelDesc;
 	// 课程介绍
 	private String descr;
-	// 课程提纲
-//	private List<Chapter> chapterList;
 
 	public Integer getCourseId() {
 		return courseId;
@@ -61,14 +59,6 @@ public class Course2 {
 	public void setImgPath(String imgPath) {
 		this.imgPath = imgPath;
 	}
-
-//	public List<Chapter> getChapterList() {
-//		return chapterList;
-//	}
-//
-//	public void setChapterList(List<Chapter> chapterList) {
-//		this.chapterList = chapterList;
-//	}
 
 	public Long getDuration() {
 		return duration;

@@ -31,7 +31,6 @@ import com.imooc.mvcdemo.service.CourseService;
 
 @Controller
 @RequestMapping("/courses")
-// /courses/**
 public class CourseController {
 	
 	private static Logger log = LoggerFactory.getLogger(CourseController.class);

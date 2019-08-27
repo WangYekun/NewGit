@@ -8,7 +8,7 @@ import com.imooc.mvcdemo.model.Course;
 public interface CourseService {
 	
 	
-	Course getCoursebyId(Integer courseId);
+	Course getCourseById(Integer courseId);
 	
 
 	
