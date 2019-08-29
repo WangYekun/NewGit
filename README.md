@@ -1,4 +1,4 @@
-# NewGit
+# spring-study
 > 日常学习项目
 
 > spring 项目
