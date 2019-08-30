@@ -12,20 +12,20 @@ import java.util.Map;
  */
 public class MainTest {
     public static void main(String[] args) {
-        System.out.println("============直接替换系统属性值===============");
-        System.out.println(StrSubstitutor.replaceSystemProperties("You are running with java.version = " +
-                "${java.version} and os.name = ${os.name}."));
+        /*System.out.println(StrSubstitutor.replaceSystemProperties("You are running with java.version = " +
+                "${java.version} and os.name = ${os.name}."));*/
 
+        //${?:}
+        //${?:-}
         Map valuesMap = new HashMap();
-        valuesMap.put("animal", "quick brown fox");
-        valuesMap.put("target", "lazy dog");
-        System.out.println("============使用Map替换字符串中的占位符===============");
-        String templateString = "The ${animal} jumped over the ${target}.";
+        valuesMap.put("name", "吴涛");
+        valuesMap.put("code", "凯影");
+        String templateString = "The ${name:} jumped over the ${code}.";
         StrSubstitutor sub = new StrSubstitutor(valuesMap);
         String resolvedString = sub.replace(templateString);
         System.out.println("resolvedString = " + resolvedString);
 
-        StrSubstitutor.replaceSystemProperties("You are running with java.version = ${java.version} " +
+        /*StrSubstitutor.replaceSystemProperties("You are running with java.version = ${java.version} " +
                 "and os.name = ${os.name}.");
         Map<String, Object> params = new HashMap<>();
         params.put("name", "${x}");
@@ -38,7 +38,7 @@ public class MainTest {
         System.out.println("============设置默认值===================");
         Map values = new HashMap();
         values.put("animal", "quick brown fox");
-        values.put("target", "");
+        values.put("target", "${}");
         String template = "The ${animal} jumped over the ${target}${undefined.number:-1234567890}";
         StrSubstitutor s = new StrSubstitutor(values);
         String sl = s.replace(template);
@@ -51,7 +51,7 @@ public class MainTest {
         String templateStrings = "The &(animal) jumped over the &(target). &(undefined.number:-1234567890).";
         StrSubstitutor subs = new StrSubstitutor(valuesMaps, "&(", ")", '&');
         String resolvedStrings = subs.replace(templateStrings);
-        System.out.println("resolvedStrings = " + resolvedStrings);
+        System.out.println("resolvedStrings = " + resolvedStrings);*/
     }
 
 
