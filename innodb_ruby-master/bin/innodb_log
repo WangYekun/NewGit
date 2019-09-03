@@ -1,0 +1,164 @@
+#!/usr/bin/env ruby
+# -*- encoding : utf-8 -*-
+
+require "getoptlong"
+require "ostruct"
+require "set"
+require "innodb"
+
+def log_summary(log_group)
+  puts "%-20s%-15s%-10s%-12s%-10s" % [
+    "lsn",
+    "block",
+    "length",
+    "first_rec",
+    "checkpoint",
+  ]
+  lsn = log_group.start_lsn.first
+  log_group.each_block do |block_index, block|
+    header = block.header
+    puts "%-20i%-15i%-10i%-12i%-10i" % [
+      lsn,
+      header[:block_number],
+      header[:data_length],
+      header[:first_rec_group],
+      header[:checkpoint_no],
+    ]
+    block.dump if @options.dump
+    lsn += Innodb::LogBlock::BLOCK_SIZE
+  end
+end
+
+def log_reader_record_summary(reader, follow)
+  puts "%-10s%-10s%-20s%-10s%-10s%-10s" % [
+    "time",
+    "lsn",
+    "type",
+    "size",
+    "space",
+    "page"
+  ]
+
+  reader.each_record(follow) do |rec|
+    preamble = rec.preamble.dup
+    preamble.default = ""
+    puts "%-10s%-10i%-20s%-10i%-10s%-10s" % [
+      (Time.now.strftime "%H:%M:%S"),
+      rec.lsn.first,
+      preamble[:type].to_s,
+      rec.size,
+      rec.preamble[:space].to_s,
+      rec.preamble[:page_number].to_s,
+    ]
+  end
+end
+
+def log_follow_tail_summary(log_group)
+  reader = log_group.reader(log_group.max_checkpoint_lsn)
+  reader.checksum = true
+  log_reader_record_summary(reader, true)
+end
+
+def log_record_summary(log_group, lsn_no)
+  reader = log_group.reader(log_group.start_lsn)
+  reader.seek(lsn_no)
+  log_reader_record_summary(reader, false)
+end
+
+def record_dump(log_group, lsn)
+  log_group.record(lsn).dump
+end
+
+def usage(exit_code, message = nil)
+  print "Error: #{message}\n" unless message.nil?
+
+  print <<'END_OF_USAGE'
+
+Usage: innodb_log [-d] [-l <lsn>] -f <log file> <mode>
+
+  --help, -?
+    Print this usage text.
+
+  --log-file, -f
+    Load a InnoDB redo log file. Repeat for each log file in the log group.
+
+  --dump-blocks, -d
+    Dump block header, trailer, and record.
+
+  --lsn <number>, -l
+    Use the log sequence number <number>.
+
+The following modes are supported:
+
+  log-summary
+    A summary of each block within the logs.
+
+  log-follow-tail-summary
+    Follow the tail of the log and print a summary of each newly logged record.
+
+  log-record-summary
+    Print a summary of each log record following a given LSN.
+
+  record-dump
+    Dump the contents of a log record, using the Ruby pp ("pretty-print") module.
+
+END_OF_USAGE
+
+  exit exit_code
+end
+
+@options = OpenStruct.new
+@options.log_files = []
+@options.dump = false
+@options.lsn = nil
+
+getopt_options = [
+  [ "--help",                   "-?",     GetoptLong::NO_ARGUMENT ],
+  [ "--log-file",               "-f",     GetoptLong::REQUIRED_ARGUMENT ],
+  [ "--dump-blocks",            "-d",     GetoptLong::NO_ARGUMENT ],
+  [ "--lsn",                    "-l",     GetoptLong::REQUIRED_ARGUMENT ],
+]
+
+getopt = GetoptLong.new(*getopt_options)
+
+getopt.each do |opt, arg|
+  case opt
+  when "--help"
+    usage 0
+  when "--log-file"
+    @options.log_files << arg
+  when "--dump-blocks"
+    @options.dump = true
+  when "--lsn"
+    @options.lsn = arg.to_i
+  end
+end
+
+mode = ARGV.shift
+
+unless mode
+  usage 1, "At least one mode must be provided"
+end
+
+if @options.log_files.empty?
+  usage 1, "At least one log file (-f) must be specified"
+end
+
+if /^(log-)?record-/.match(mode) and !@options.lsn
+  usage 1, "LSN must be specified using -l/--lsn"
+end
+
+log_group = Innodb::LogGroup.new(@options.log_files.sort)
+
+case mode
+when "log-summary"
+  log_summary(log_group)
+when "log-follow-tail-summary"
+  log_follow_tail_summary(log_group)
+when "log-record-summary"
+  log_record_summary(log_group, @options.lsn)
+when "record-dump"
+  record_dump(log_group, @options.lsn)
+else
+  usage 1, "Unknown mode: #{mode}"
+end
