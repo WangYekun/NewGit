@@ -5,3 +5,4 @@
 
 > spring全家桶
 
+> nginx部署
