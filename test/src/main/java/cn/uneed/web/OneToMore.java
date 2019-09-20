@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public class OneToMore {
     public static void main(String[] args) {
-        Map<String, List<String>> map = new HashMap<>(16);
+        Map<String, List<String>> map = new HashMap<>(24);
         List<String> list = new ArrayList<>();
         list.add("a");
         list.add("b");
@@ -20,9 +20,10 @@ public class OneToMore {
         map.put("oneToMore", list);
         // 得到key
         List<String> results = map.get("oneToMore");
-        // 输出key
+        // 输出key(List集合方式存在)
         System.out.println("######################## 集合方式存在 ##############################");
         System.out.println("key = " + results);
+        // 增强for输出
         System.out.println("######################## 循环方式存在 ##############################");
         for (Object key : results) {
             System.out.println("key = " + key);
