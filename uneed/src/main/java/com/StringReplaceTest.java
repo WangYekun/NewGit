@@ -1,5 +1,6 @@
 package com;
 
+import com.google.common.collect.Maps;
 import org.apache.commons.lang3.text.StrSubstitutor;
 
 import java.util.HashMap;
@@ -10,14 +11,14 @@ import java.util.Map;
  * @version 1.0
  * @date 2019/8/29 11:16
  */
-public class MainTest {
+public class StringReplaceTest {
     public static void main(String[] args) {
         /*System.out.println(StrSubstitutor.replaceSystemProperties("You are running with java.version = " +
                 "${java.version} and os.name = ${os.name}."));*/
 
         //${?:}
         //${?:-}
-        Map valuesMap = new HashMap();
+        Map<String, String> valuesMap = Maps.newHashMap();
         valuesMap.put("name", "吴涛");
         valuesMap.put("code", "凯影");
         String templateString = "The ${name:} jumped over the ${code}.";
