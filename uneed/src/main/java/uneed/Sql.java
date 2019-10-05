@@ -1,5 +1,7 @@
 package uneed;
 
+import java.text.SimpleDateFormat;
+
 /**
  * @author WangYeKun
  * @version 1.0
@@ -8,6 +10,8 @@ package uneed;
  */
 public class Sql {
     public static void main(String[] args) {
+        // 时间格式:年-月-日 时:分:秒
+        new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println("#######@@@@@@@@@@@###########");
     }
 }
