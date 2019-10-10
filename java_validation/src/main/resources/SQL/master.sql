@@ -2,6 +2,7 @@
 -- ----------------------------
 -- 用户表
 -- ----------------------------
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user`
 (
     `id`          bigint(20)                        NOT NULL AUTO_INCREMENT,
@@ -21,7 +22,7 @@ CREATE TABLE `user`
 -- ----------------------------
 -- 部门表
 -- ----------------------------
-DROP TABLE IF EXISTS `t_department`;
+DROP TABLE IF EXISTS `department`;
 CREATE TABLE `department`
 (
     `id`             INT(11) NOT NULL AUTO_INCREMENT,
@@ -36,7 +37,7 @@ CREATE TABLE `department`
 -- ----------------------------
 -- 员工表
 -- ----------------------------
-DROP TABLE IF EXISTS `t_employee`;
+DROP TABLE IF EXISTS `employee`;
 CREATE TABLE `employee`
 (
     `id`       INT(11) NOT NULL AUTO_INCREMENT,
