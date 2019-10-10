@@ -10,7 +10,6 @@ package com.boot.lea.mybot.exception;
 
 import com.boot.lea.mybot.constant.Constant;
 import com.boot.lea.mybot.dto.RspDTO;
-import org.mybot.resubmit.ex.ResubmitException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DuplicateKeyException;
@@ -103,11 +102,11 @@ public class GlobalExceptionHandler {
     }
 
 
-    @ExceptionHandler(ResubmitException.class)
+/*    @ExceptionHandler(ResubmitException.class)
     public RspDTO handleResubmitException(ResubmitException e) {
         logger.error(e.getMessage(), e);
         return new RspDTO(Constant.RESUBMIT, e.getMessage());
-    }
+    }*/
 
     @ExceptionHandler(DuplicateKeyException.class)
     public RspDTO handleDuplicateKeyException(DuplicateKeyException e) {

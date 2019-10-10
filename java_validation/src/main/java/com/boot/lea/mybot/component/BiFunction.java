@@ -53,8 +53,7 @@ public interface BiFunction<T, U, R> {
             System.out.println(biFunctionTest2.compute(4, 5, (a, b) -> a * b, a -> a * 2));
         }
 
-        int compute(int a, int b, BiFunction<Integer, Integer, Integer> biFunction,
-                    Function<Integer, Integer> function) {
+        int compute(int a, int b, BiFunction<Integer, Integer, Integer> biFunction, Function<Integer, Integer> function) {
             return biFunction.andThen(function).apply(a, b);
         }
     }

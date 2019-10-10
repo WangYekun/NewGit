@@ -2,7 +2,7 @@
 -- ----------------------------
 -- 用户表
 -- ----------------------------
-CREATE TABLE `t_user`
+CREATE TABLE `user`
 (
     `id`          bigint(20)                        NOT NULL AUTO_INCREMENT,
     `username`    varchar(50) CHARACTER SET utf8mb4 NOT NULL DEFAULT '',
