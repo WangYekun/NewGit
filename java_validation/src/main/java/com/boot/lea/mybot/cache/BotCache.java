@@ -27,18 +27,13 @@ public class BotCache {
     @Bean(name = "myCache")
     public Cache<String, Integer> getCache() {
         // 缓存有效期为2秒
-        return CacheBuilder.newBuilder()
-                .expireAfterWrite(2L, TimeUnit.SECONDS)
-                .build();
+        return CacheBuilder.newBuilder().expireAfterWrite(2L, TimeUnit.SECONDS).build();
     }
 
     @Bean(name = "botCache")
     public Cache<String, String> getBotCache() {
         // 缓存有效期为5秒
-        return CacheBuilder.newBuilder()
-                .expireAfterWrite(5L, TimeUnit.SECONDS)
-                .initialCapacity(20)
-                .build();
+        return CacheBuilder.newBuilder().expireAfterWrite(5L, TimeUnit.SECONDS).initialCapacity(20).build();
     }
 
 }

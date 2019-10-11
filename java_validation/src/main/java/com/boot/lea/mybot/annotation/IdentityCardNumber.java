@@ -1,7 +1,6 @@
 package com.boot.lea.mybot.annotation;
 
 
-
 import com.boot.lea.mybot.annotation.impl.IdentityCardNumberValidator;
 
 import javax.validation.Constraint;

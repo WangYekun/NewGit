@@ -7,7 +7,9 @@ import com.boot.lea.mybot.utils.IdCardValidatorUtils;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-/**IdCardValidatorUtils
+/**
+ * IdCardValidatorUtils
+ *
  * @author LiJing
  * @version 1.0
  * @Title: IdentityCardNumber

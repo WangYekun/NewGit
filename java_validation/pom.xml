@@ -88,6 +88,13 @@
             <version>1.2.17</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.9.4</version>
+        </dependency>
+
 
         <!--ApiBoot Swagger-->
         <dependency>
@@ -157,11 +164,11 @@
             <version>2.5.16</version>
         </dependency>
 
-        <!--        <dependency>-->
-        <!--            <groupId>org.mybot</groupId>-->
-        <!--            <artifactId>resubmit-spring-boot-starter</artifactId>-->
-        <!--            <version>1.0.0</version>-->
-        <!--        </dependency>-->
+<!--        <dependency>
+            <groupId>org.mybot</groupId>
+            <artifactId>resubmit-spring-boot-starter</artifactId>
+            <version>1.0.0</version>
+        </dependency>-->
 
     </dependencies>
 
