@@ -20,12 +20,10 @@ import com.boot.lea.mybot.futrue.MyFutureTask;
 import com.boot.lea.mybot.service.UserService;
 import com.boot.lea.mybot.vo.UserVO;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.aop.framework.AopContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import javax.validation.constraints.NotBlank;
 import java.util.HashMap;
 import java.util.Map;
@@ -153,7 +151,7 @@ public class UserController extends AbstractController {
     @PostMapping("/update/groups")
     public RspDTO update(@RequestBody @Validated(Update.class) UserDTO userDTO) {
         int i = userService.updateById(userDTO);
-        System.out.println("影响行数:"+i);
+        System.out.println("影响行数:" + i);
         if (i > 0) {
             return RspDTO.success();
         }
