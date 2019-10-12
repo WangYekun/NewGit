@@ -14,7 +14,7 @@ import javax.validation.Valid;
 /**
  * @program: SpringBootValidate
  * @description:
- * @author: WangYeKun
+ * @author: Billie
  * @create: 2019-06-27 17:07
  **/
 @Controller
@@ -46,7 +46,7 @@ public class UsersController {
             return "register";
         }
 
-        log.info("======== register users information ==========: {}", JSON.toJSONString(users));
+        log.debug("======== register users information ==========: {}", JSON.toJSONString(users));
 
         return "success";
     }

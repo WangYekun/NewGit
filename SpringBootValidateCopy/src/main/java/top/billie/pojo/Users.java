@@ -4,10 +4,10 @@ import lombok.Data;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Min;
+import java.util.Date;
 
 /**
  * @program: SpringBootValidate
@@ -18,10 +18,8 @@ import javax.validation.constraints.Min;
 @Data
 public class Users {
 
-
-    @Future()
-    @Range(min = 10, max = 20, message = "11<X<21")
-    private String registerDate;
+    @Future(message = "时间只能填写未来时间")
+    private Date registerDate;
 
     @NotBlank(message = "用户名不能为空")
     @Length(min = 8, max = 16, message = "请输入8-16位用户名")
