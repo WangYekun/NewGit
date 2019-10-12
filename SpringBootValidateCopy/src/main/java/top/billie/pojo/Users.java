@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
 
 /**
  * @program: SpringBootValidate
@@ -20,7 +21,6 @@ public class Users {
     @Length(min = 8, max = 16, message = "请输入8-16位用户名")
     private String name;
 
-    @NotBlank(message = "密码不能为空")
     @Length(min = 8, max = 16, message = "请输入8-16位密码")
     private String password;
 
@@ -28,7 +28,9 @@ public class Users {
     private Integer age;
 
     @Email
-    @NotBlank(message = "密码不能为空")
     private String email;
+
+    @Pattern(regexp = "\\d{15}(\\d\\d[0-9xX])?", message = "身份证格式不对")
+    private String idCard;
 
 }
