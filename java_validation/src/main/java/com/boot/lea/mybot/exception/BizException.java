@@ -45,5 +45,4 @@ public class BizException extends RuntimeException {
         this.code = code;
     }
 
-
 }
