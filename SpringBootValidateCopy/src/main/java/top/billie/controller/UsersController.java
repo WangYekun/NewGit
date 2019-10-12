@@ -46,7 +46,7 @@ public class UsersController {
             return "register";
         }
 
-        log.debug("======== register users information ==========: {}", JSON.toJSONString(users));
+        log.info("======== register users information ==========: {}", JSON.toJSONString(users));
 
         return "success";
     }
