@@ -1,12 +1,22 @@
+#spring:
+#  application:
+#    name: first-service-provider
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
+#logging:
+#  level:
+#    com.netflix: INFO
+
 spring:
   application:
-    name: first-service-provider
+    name: first-cloud-provider
 eureka:
   instance:
     hostname: localhost
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-logging:
-  level:
-    com.netflix: INFO
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
