@@ -10,6 +10,8 @@ public class ManageWebApp {
 
 	public static void main(String[] args) {
 		new SpringApplicationBuilder(ManageWebApp.class).run(args);
+		System.out.println("************************ sc-manage-service started **************************");
+
 	}
 
 }

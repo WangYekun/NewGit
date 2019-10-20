@@ -10,6 +10,7 @@ public class BookServiceApp {
 
 	public static void main(String[] args) {
 		new SpringApplicationBuilder(BookServiceApp.class).run(args);
+		System.out.println("************************ sc-book-service started **************************");
 	}
 
 }

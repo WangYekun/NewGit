@@ -10,6 +10,8 @@ public class UserServiceApp {
 
 	public static void main(String[] args) {
 		new SpringApplicationBuilder(UserServiceApp.class).run(args);
+		System.out.println("************************ sc-user-service started **************************");
+
 	}
 
 }

@@ -10,5 +10,7 @@ public class GatewayApp {
 
 	public static void main(String[] args) {
 		new SpringApplicationBuilder(GatewayApp.class).run(args);
+		System.out.println("************************ sc-gateway-service started **************************");
+
 	}
 }
