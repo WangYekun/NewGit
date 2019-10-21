@@ -5,8 +5,10 @@ package uneed;
  * @version 1.0
  * @date 2019/10/5 11:45
  */
-class NPEDemo {
+public class NullPointExceptionDemo {
     public static void main(String[] args) {
+        System.out.println("############### NullPointException Description ################");
+
         /*
         1. 【推荐】防止 NPE，是程序员的基本修养，注意 NPE产生的场景：
         1） 返回类型为基本数据类型，return 包装数据类型的对象时，自动拆箱有可能产生 NPE。
@@ -18,5 +20,6 @@ class NPEDemo {
         6） 级联调用 obj.getA().getB().getC()；一连串调用，易产生 NPE。
         正例：使用 JDK8的Optional 类来防止 NPE问题。
          */
+
     }
 }
