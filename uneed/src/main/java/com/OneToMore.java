@@ -3,8 +3,6 @@ package com;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -30,7 +28,7 @@ public class OneToMore {
         // 增强for输出
         System.out.println("######################## 循环方式存在 ##############################");
         for (Object key : results) {
-            System.out.println("key = " + key);
+            System.out.println("key => " + key);
         }
 
     }
