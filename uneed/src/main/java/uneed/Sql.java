@@ -12,7 +12,7 @@ public class Sql {
     public static void main(String[] args) {
         // 时间格式:年-月-日 时:分:秒
         new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        System.out.println("#######@@@@@@@@@@@###########");
+        System.out.println("###########################################");
         /*
         pk_ 即primary key；uk_ 即 unique key；idx_ 即index的简称
         对象 年龄区间 类型 字节 表示范围
