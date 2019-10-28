@@ -13,15 +13,16 @@ import java.util.Map;
  * @date 2019/9/21 20:56
  */
 public class OneToMore {
+
     public static void main(String[] args) {
-        Map<String, List<String>> map = Maps.newHashMap();
+        Map<Integer, List<String>> map = Maps.newHashMap();
         List<String> list = Lists.newArrayList();
         list.add("a");
         list.add("b");
         list.add("c");
-        map.put("oneToMore", list);
+        map.put(1, list);
         // 得到key
-        List<String> results = map.get("oneToMore");
+        List<String> results = map.get(1);
         // 输出key(List集合方式存在)
         System.out.println("######################## 集合方式存在 ##############################");
         System.out.println("key = " + results);
