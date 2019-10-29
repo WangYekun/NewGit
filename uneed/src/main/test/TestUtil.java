@@ -1,3 +1,6 @@
+import cn.hutool.core.convert.Convert;
+import cn.hutool.core.util.CharsetUtil;
+import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.BeanUtils;
 import study10.Employee;
@@ -18,5 +21,13 @@ public class TestUtil {
         // source=>employee | target=>user
         BeanUtils.copyProperties(employee, user);
         System.out.println(user);
+
+        // 编码转换
+        String a = "我不是乱码";
+        //转换后result为乱码
+        String result = Convert.convertCharset(a, CharsetUtil.UTF_8, CharsetUtil.ISO_8859_1);
+        String raw = Convert.convertCharset(result, CharsetUtil.ISO_8859_1, "UTF-8");
+        Assert.assertEquals(raw, a);
     }
+
 }
