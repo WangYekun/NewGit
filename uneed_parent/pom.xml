@@ -163,7 +163,6 @@
                 <version>${spring.version}</version>
             </dependency>
             <!-- JSP相关 -->
-            <!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl -->
             <dependency>
                 <groupId>javax.servlet.jsp.jstl</groupId>
                 <artifactId>jstl</artifactId>
@@ -175,7 +174,6 @@
                 <version>${servlet-api.version}</version>
                 <scope>provided</scope>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/javax.servlet.jsp/javax.servlet.jsp-api -->
             <dependency>
                 <groupId>javax.servlet.jsp</groupId>
                 <artifactId>javax.servlet.jsp-api</artifactId>
