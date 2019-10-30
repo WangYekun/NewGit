@@ -1,0 +1,20 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+    # hostname: localhost
+    # 不使用主机名来定义注册中心的地址，而使用IP地址的形式(实例名称显示IP)
+    prefer-ip-address: true
+    # hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    # serviceUrl:
+       # defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+spring:
+  application:
+    name: service-server
+
+

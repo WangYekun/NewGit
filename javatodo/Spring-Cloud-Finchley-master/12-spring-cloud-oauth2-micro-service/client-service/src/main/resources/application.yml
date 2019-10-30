@@ -1,0 +1,27 @@
+server:
+  port: 8762
+
+spring:
+  application:
+    name: client-service
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:8763/current
+
+    client:
+    # 客户端Id ，与OAuth Provider 中的配置一一对应
+      clientId: client-service
+      # 客户端密码，与OAuth Provider 中的配置一一对应
+      clientSecret: 123456
+      # 获取Token的节点
+      accessTokenUri: http://localhost:8763/oauth/token
+      grant-type: client_credentials,password
+      # 客户端的域
+      scope: server

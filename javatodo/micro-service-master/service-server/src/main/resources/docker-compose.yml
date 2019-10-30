@@ -1,0 +1,46 @@
+version: '2'
+services:
+
+ mysql:
+    image: mysql
+    restart: always
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: roof
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_vol:/var/lib/mysql
+    networks:
+      - micro
+
+ server:
+    image: server
+    build:
+      context: ./server
+      dockerfile: ./Dockerfile
+    container_name: server
+    ports:
+      - "8761:8761"
+    networks:
+      - micro
+
+ client:
+    image: client
+    build:
+      context: ./client
+      dockerfile: ./Dockerfile
+    container_name: client
+    ports:
+      - "8762:8762"
+    depends_on:
+      - mysql
+      - server
+    networks:
+      - micro
+
+networks:
+  micro:
+    driver: bridge
+volumes:
+  mysql_vol:

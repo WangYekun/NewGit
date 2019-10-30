@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Setter注入-->
+    <!--https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-setter-injection-->
+
+    <!--ref:引用一个Bean-->
+    <bean id="exampleBean" class="com.javahly.setterBasedDependencyInjection.bean.ExampleBean">
+        <property name="years" value="100"></property>
+        <property name="ultimateAnswer" value="xxx"></property>
+    </bean>
+
+</beans>

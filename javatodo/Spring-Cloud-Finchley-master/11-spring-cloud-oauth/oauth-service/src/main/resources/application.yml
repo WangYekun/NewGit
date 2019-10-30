@@ -1,0 +1,17 @@
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    check-template-location: true
+    suffix: .html
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    mode: HTML5
+    # 禁止后实现前端热部署
+    cache: false
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: roof
+    url: jdbc:mysql://localhost:3306/security?useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&autoReconnect=true

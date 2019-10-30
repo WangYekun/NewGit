@@ -1,0 +1,25 @@
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8769
+spring:
+  application:
+    name: service-zuul
+zuul:
+  routes:
+    api-a:
+      path: /user-api/**
+      serviceId: service-user
+    api-b:
+      path: /blog-api/**
+      serviceId: service-blog
+swagger:
+  contact:
+    name: hly
+    url: www.javahly.com
+    email: 1136513099@qq.com
+
+
