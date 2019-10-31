@@ -6,7 +6,7 @@ import lombok.Data;
  * @author WangYeKun
  * @version 1.0
  * @date 2019/10/31 9:19
- * @description 测试springcopy
+ * @description 测试spring copy
  */
 @Data
 public class TestVO {

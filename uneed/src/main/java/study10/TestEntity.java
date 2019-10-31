@@ -7,7 +7,7 @@ import org.springframework.beans.BeanUtils;
  * @author WangYeKun
  * @version 1.0
  * @date 2019/10/31 9:18
- * @description 测试spring.copy
+ * @description 测试spring copy
  */
 @Data
 public class TestEntity {
