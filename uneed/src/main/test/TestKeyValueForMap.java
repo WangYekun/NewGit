@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class TestKeyValueForMap {
 
 
-    /***************************************************** loop method *************************************************************************/
+    /***************************************************** loop method ************************************************************************/
     @Test
     public void loop() {
         Map<String, Integer> map = ImmutableMap.of("A", 1, "B", 2, "C", 3, "D", 2);
