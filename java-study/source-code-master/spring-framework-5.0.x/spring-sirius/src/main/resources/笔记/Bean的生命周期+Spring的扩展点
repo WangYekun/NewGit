@@ -1,0 +1,48 @@
+java class Class(java提供用来描述一个类)
+BeanDefinition 在Spring中用来描述一个Bean
+Bean属于类，类不代表Bean，Bean受Spring管理
+
+注册单个Bean给容器
+新加的类可以使用这个方法
+注册之后需要手动调用refresh去触发容器解析注解
+annotationConfigApplicationContext.register(IndexDao.class);
+annotationConfigApplicationContext.register();
+
+org.springframework.context.annotation.AnnotationConfigApplicationContext
+    org.springframework.context.annotation.AnnotatedBeanDefinitionReader
+        org.springframework.context.annotation.ConditionEvaluator.shouldSkip(org.springframework.core.type.AnnotatedTypeMetadata)
+        org.springframework.context.annotation.AnnotationConfigUtils.processCommonDefinitionAnnotations(org.springframework.beans.factory.annotation.AnnotatedBeanDefinition)
+        org.springframework.beans.factory.support.BeanDefinitionReaderUtils.registerBeanDefinition
+           org.springframework.beans.factory.support.BeanDefinitionRegistry.registerBeanDefinition(ctrl+alt+b)
+                org.springframework.beans.factory.support.DefaultListableBeanFactory.registerBeanDefinition
+                    org.springframework.beans.factory.support.DefaultListableBeanFactory.beanDefinitionMap: 容器(bd+beanName)848行
+                    org.springframework.beans.factory.support.DefaultListableBeanFactory.beanDefinitionNames(List,保存Bean的名字)
+
+org.springframework.context.support.AbstractApplicationContext.refresh
+    org.springframework.context.support.AbstractApplicationContext.prepareBeanFactory
+        org.springframework.beans.factory.support.AbstractBeanFactory.addBeanPostProcessor(ctrl+alt+b)
+        org.springframework.context.support.ApplicationContextAwareProcessor
+            org.springframework.beans.factory.config.BeanPostProcessor
+
+
+DefaultListableBeanFactory(Bean工厂：beanDefinitionMap+beanDefinitionNames(List)),beanDefinitionMap有哪些类就产生哪些类
+beanDefinitionMap：有7个类 AnnotatedBeanDefinitionReader 完成7个类的注册,为什么会注册进去
+
+org.springframework.context.support.AbstractApplicationContext.refresh 实例化Spring容器
+
+SpringBean的扩展的几个扩展点(5个)
+org.springframework.beans.factory.config.BeanFactoryPostProcessor(以在Spring的bean创建之前修改bean的定义属性)
+org.springframework.beans.factory.config.BeanPostProcessor (程序员可以手动插手Bean实例化的过程，从而减轻BeanFactory的负担)
+    org.springframework.context.support.ApplicationContextAwareProcessor
+
+Bean的定义
+org.springframework.beans.factory.annotation.AnnotatedBeanDefinition
+    org.springframework.beans.factory.config.BeanDefinition
+
+@Qualifier(xxx)
+作用：有两个实现类，使用哪个
+
+ctrl+alt+b 这个类有哪些实现
+
+
+

@@ -1,0 +1,5 @@
+1.得到用户自定义的BeanDefinitionRegistryPostProcessor
+2.内置的BeanDefinitionRegistryPostProcessor 1
+   ConfigurationClassPostProcessor 扫描包
+3.处理BeanDefinitionRegistryPostProcessor ext BeanFactoryPostProcessor
+   postProcessBeanDefinitionRegistry
