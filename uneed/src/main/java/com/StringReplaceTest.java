@@ -19,7 +19,7 @@ public class StringReplaceTest {
         //${?:-}
         Map<String, String> valuesMap = Maps.newHashMap();
         valuesMap.put("name", "吴涛");
-        valuesMap.put("code", "凯影");
+        valuesMap.put("code", "凯颖");
         String templateString = "The ${name:} jumped over the ${code}.";
         StrSubstitutor sub = new StrSubstitutor(valuesMap);
         String resolvedString = sub.replace(templateString);

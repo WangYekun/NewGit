@@ -96,16 +96,16 @@ public class SendMailImage {
         text.setContent("这是一张图片<br/><a href='http://www.cnblogs.com/ysocean/p/7666061.html'><img src='cid:mailTestPic'/></a>", "text/html;charset=UTF-8");
 
         // 7. （文本+图片）设置 文本 和 图片"节点"的关系（将 文本 和 图片"节点"合成一个混合"节点"）
-        MimeMultipart mm_text_image = new MimeMultipart();
-        mm_text_image.addBodyPart(text);
-        mm_text_image.addBodyPart(image);
-        mm_text_image.setSubType("related");    // 关联关系
+        MimeMultipart mmTextImage = new MimeMultipart();
+        mmTextImage.addBodyPart(text);
+        mmTextImage.addBodyPart(image);
+        mmTextImage.setSubType("related");    // 关联关系
 
         // 8. 将 文本+图片 的混合"节点"封装成一个普通"节点"
         // 最终添加到邮件的 Content 是由多个 BodyPart 组成的 Multipart, 所以我们需要的是 BodyPart,
         // 上面的 mailTestPic 并非 BodyPart, 所有要把 mm_text_image 封装成一个 BodyPart
-        MimeBodyPart text_image = new MimeBodyPart();
-        text_image.setContent(mm_text_image);
+        MimeBodyPart textImage = new MimeBodyPart();
+        textImage.setContent(mmTextImage);
 
         // 9. 创建附件"节点"
         MimeBodyPart attachment = new MimeBodyPart();
@@ -120,7 +120,7 @@ public class SendMailImage {
 
         // 10. 设置（文本+图片）和 附件 的关系（合成一个大的混合"节点" / Multipart ）
         MimeMultipart mm = new MimeMultipart();
-        mm.addBodyPart(text_image);
+        mm.addBodyPart(textImage);
         mm.addBodyPart(attachment);     // 如果有多个附件，可以创建多个多次添加
         mm.setSubType("mixed");         // 混合关系
 
