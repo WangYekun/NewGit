@@ -18,17 +18,17 @@ import java.util.Properties;
  * @description 发送图片邮箱
  */
 public class SendMailImage {
-    //发件人地址
+    /*发件人地址*/
     public static String senderAddress = "17866630618@163.com";
-    //收件人地址
+    /*收件人地址*/
     public static String recipientAddress = "849907942@qq.com";
-    //发件人账户名
+    /*发件人账户名*/
     public static String senderAccount = "17866630618";
-    //发件人账户密码
+    /*发件人账户密码*/
     public static String senderPassword = "aa123456789000";
 
     public static void main(String[] args) throws Exception {
-        //1、连接邮件服务器的参数配置
+        // 1、连接邮件服务器的参数配置
         Properties props = new Properties();
         //设置用户的认证方式
         props.setProperty("mail.smtp.auth", "true");
