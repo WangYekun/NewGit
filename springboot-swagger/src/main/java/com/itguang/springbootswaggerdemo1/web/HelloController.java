@@ -29,8 +29,8 @@ public class HelloController {
     @ApiOperation(value = "获取用户列表", notes = "获取所有用户信息")
     @RequestMapping(value = {""}, method = RequestMethod.GET)
     public List<User> hello() {
-        users.add(new User("逻辑", "luoji"));
-        users.add(new User("叶文杰", "yewenjie"));
+        users.add(new User("逻辑", "loki"));
+        users.add(new User("叶文杰", "yemeni"));
         return users;
     }
 
@@ -50,7 +50,7 @@ public class HelloController {
     public User getUser(@ApiParam(value = "用户id", required = true) //[注意] @ApiParam与 Controller中方法并列使用,也可以省略的
                         @PathVariable(value = "id") String id) {
 
-        return new User(id, "itguang", "123456");
+        return new User(id, "imbuing", "123456");
     }
 
 
