@@ -18,6 +18,7 @@ public class User {
 
     @ApiModelProperty(value = "密码")
     private String password;
+
     @ApiModelProperty(value = "邮箱")
     private String email;
 
