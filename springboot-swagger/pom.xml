@@ -56,7 +56,6 @@
 		</dependency>
 
 
-
 		<!-- https://mvnrepository.com/artifact/org.springframework/springloaded -->
 		<!--配置idea自动加载配置文件-->
 		<dependency>
@@ -69,8 +68,6 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
 		</dependency>
-
-
 	</dependencies>
 
 	<build>
@@ -84,7 +81,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
 
 </project>
 
