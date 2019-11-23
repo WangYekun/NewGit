@@ -14,10 +14,8 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 
 /**
- * @author itguang
- * @create 2018-01-04 13:31
- **/
-
+ * @author lenovo
+ */
 @RestController
 @RequestMapping(value = "/user", produces = APPLICATION_JSON_VALUE)
 @Api(description = "用户管理")

@@ -11,9 +11,8 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * @author itguang
- * @create 2018-01-04 13:36
- **/
+ * @author lenovo
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
@@ -27,7 +26,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder().title("Spring Boot中使用Swagger2构建RESTful API").description("rest api 文档构建利器")
-                                   .termsOfServiceUrl("http://blog.csdn.net/itguangit").contact("itguang").version("1.0").build();
+                                   .termsOfServiceUrl("https://blog.wangyekun.top/").contact("WangYeKun").version("1.0.0").build();
     }
 
 }
