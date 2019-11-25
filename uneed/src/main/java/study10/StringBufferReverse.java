@@ -1,4 +1,4 @@
-package com;
+package study10;
 
 /**
  * @author WangYeKun

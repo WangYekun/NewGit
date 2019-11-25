@@ -1,4 +1,4 @@
-package study11;
+package study11.email;
 
 import com.sun.mail.pop3.POP3Folder;
 import org.apache.commons.io.IOUtils;

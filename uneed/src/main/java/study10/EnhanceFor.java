@@ -1,4 +1,4 @@
-package com;
+package study10;
 
 import com.google.common.collect.Lists;
 

@@ -1,4 +1,4 @@
-package study11;
+package study11.email;
 
 
 import javax.mail.Message;
