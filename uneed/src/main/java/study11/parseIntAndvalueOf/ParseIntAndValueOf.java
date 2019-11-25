@@ -25,15 +25,9 @@ public class ParseIntAndValueOf {
         String s2 = "1000";
         int n1 = Integer.parseInt(s1);
         int n2 = Integer.parseInt(s2);
-        int n3 = Integer.valueOf(s1);
-        int n4 = Integer.valueOf(s2);
 
         if (n1 == n2) {
             System.out.println("Integer.parseInt(s1) == Integer.parseInt(s2)");
-        }
-
-        if (n3 == n4) {
-            System.out.println("Integer.valueOf(s3) == Integer.valueOf(s4)");
         }
 
         /*
