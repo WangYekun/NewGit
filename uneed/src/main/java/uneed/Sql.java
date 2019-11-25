@@ -1,6 +1,8 @@
 package uneed;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * @author WangYeKun
@@ -12,6 +14,12 @@ public class Sql {
     public static void main(String[] args) {
         // 时间格式:年-月-日 时:分:秒
         new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime localDateTime = LocalDateTime.now();
+        System.out.println("local date time ===>" + localDateTime);
+
+        LocalDate localDate = LocalDate.now();
+        /*XX年-XX月-XX日*/
+        System.out.println("local date ===>" + localDate);
         System.out.println("###########################################");
         /*
         pk_ 即primary key；uk_ 即 unique key；idx_ 即index的简称
