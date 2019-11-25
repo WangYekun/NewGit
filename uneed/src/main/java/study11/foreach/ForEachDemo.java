@@ -9,7 +9,7 @@ package study11.foreach;
 public class ForEachDemo {
 
     public static void main(String[] args) {
-        System.out.println("################### test foreach ###################" + "");
+        System.out.println("#################### test foreach ###################" + "");
         /*1. 等一种失败*/
 
         /*
