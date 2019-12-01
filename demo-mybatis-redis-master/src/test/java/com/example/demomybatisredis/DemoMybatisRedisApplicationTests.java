@@ -23,7 +23,7 @@ class DemoMybatisRedisApplicationTests {
 
     @Test
     void findById() {
-        Student student = studentService.findById("08");
+        Student student = studentService.findById("11");
         System.out.println(student);
 
     }
@@ -32,9 +32,9 @@ class DemoMybatisRedisApplicationTests {
     void save() {
         Student student = new Student();
         student.setsBirth("2019-07-03");
-        student.setsId("07");
-        student.setsName("王业坤");
-        student.setsSex("男");
+        student.setsId("11");
+        student.setsName("WangYeKun");
+        student.setsSex("male");
         Student save = studentService.save(student);
         System.out.println(save);
 
