@@ -33,7 +33,7 @@
                         userId="${spring.datasource.username}"
                         password="${spring.datasource.password}">
             <!--  解决解决连接到其他数据库的问题-->
-            <property name="nullCatalogMeansCurrent" value="true" />
+            <property name="nullCatalogMeansCurrent" value="true"/>
         </jdbcConnection>
 
         <!-- 类型转换 -->

@@ -24,9 +24,9 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    @CachePut(value = "student",key = "#student.sId")
+    @CachePut(value = "student", key = "#student.sId")
     public Student save(Student student) {
-        return studentMapper.insert(student)==1?student:null;
+        return studentMapper.insert(student) == 1 ? student : null;
     }
 
     @Override
@@ -36,7 +36,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    @CacheEvict(value = "student",key = "#id")
+    @CacheEvict(value = "student", key = "#id")
     public Integer delete(String id) {
         return studentMapper.deleteByPrimaryKey(id);
     }

@@ -2,12 +2,15 @@ package com.example.demomybatisredis.mapper;
 
 import com.example.demomybatisredis.model.Score;
 import com.example.demomybatisredis.model.ScoreExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ScoreMapper {
+
     long countByExample(ScoreExample example);
 
     int deleteByExample(ScoreExample example);

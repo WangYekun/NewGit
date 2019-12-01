@@ -2,12 +2,14 @@ package com.example.demomybatisredis.mapper;
 
 import com.example.demomybatisredis.model.Teacher;
 import com.example.demomybatisredis.model.TeacherExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface TeacherMapper {
+
     long countByExample(TeacherExample example);
 
     int deleteByExample(TeacherExample example);
@@ -29,4 +31,5 @@ public interface TeacherMapper {
     int updateByPrimaryKeySelective(Teacher record);
 
     int updateByPrimaryKey(Teacher record);
+
 }

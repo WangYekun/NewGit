@@ -10,6 +10,7 @@ public class DemoMybatisRedisApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DemoMybatisRedisApplication.class, args);
+        System.out.println("############# DemoMybatisRedisApplication started ###########");
     }
 
 }

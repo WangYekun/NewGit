@@ -2,12 +2,14 @@ package com.example.demomybatisredis.mapper;
 
 import com.example.demomybatisredis.model.Course;
 import com.example.demomybatisredis.model.CourseExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CourseMapper {
+
     long countByExample(CourseExample example);
 
     int deleteByExample(CourseExample example);

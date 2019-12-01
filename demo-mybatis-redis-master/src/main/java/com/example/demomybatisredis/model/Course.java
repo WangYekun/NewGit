@@ -1,14 +1,12 @@
 package com.example.demomybatisredis.model;
 
-import java.io.Serializable;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /**
- * 
- *
  * @author shawn
  * @date 2019/11/29
  */
@@ -16,6 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Course implements Serializable {
+
     private String cId;
 
     private String cName;

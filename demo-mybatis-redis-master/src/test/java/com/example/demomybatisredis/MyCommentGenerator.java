@@ -14,6 +14,7 @@ import java.util.Date;
 import java.util.Properties;
 
 public class MyCommentGenerator extends DefaultCommentGenerator {
+
     //添加注释总开关，generator.xml中设置为true！！！
     private boolean addRemarkComments = false;
     //是否需要添加swaggerui注释
@@ -45,12 +46,11 @@ public class MyCommentGenerator extends DefaultCommentGenerator {
      * 给字段添加注释
      */
     @Override
-    public void addFieldComment(Field field, IntrospectedTable introspectedTable,
-                                IntrospectedColumn introspectedColumn) {
+    public void addFieldComment(Field field, IntrospectedTable introspectedTable, IntrospectedColumn introspectedColumn) {
         String remarks = introspectedColumn.getRemarks();
         //根据参数和备注信息判断是否添加备注信息
         if (addRemarkComments && StringUtility.stringHasValue(remarks)) {
-//            addFieldJavaDoc(field, remarks);
+            //            addFieldJavaDoc(field, remarks);
             //数据库中特殊字符需要转义
             if (remarks.contains("\"")) {
                 remarks = remarks.replace("\"", "'");
@@ -67,7 +67,6 @@ public class MyCommentGenerator extends DefaultCommentGenerator {
 
         }
     }
-
 
     @Override
     public void addJavaFileComment(CompilationUnit compilationUnit) {
@@ -91,8 +90,7 @@ public class MyCommentGenerator extends DefaultCommentGenerator {
      * 在生成的model上添加注释
      */
     @Override
-    public void addModelClassComment(TopLevelClass topLevelClass,
-                                     IntrospectedTable introspectedTable) {
+    public void addModelClassComment(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         //addRemarkComments为true则执行
         if (!addAuthorAndDate) {
             return;
