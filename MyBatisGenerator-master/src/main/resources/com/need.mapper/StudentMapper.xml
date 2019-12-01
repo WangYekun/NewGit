@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.need.ScoreMapper">
-  <resultMap id="BaseResultMap" type="com.need.entity.Score">
+<mapper namespace="com.need.mapper.StudentMapper">
+  <resultMap id="BaseResultMap" type="com.need.entity.Student">
     <id column="s_id" jdbcType="VARCHAR" property="sId" />
-    <result column="c_id" jdbcType="VARCHAR" property="cId" />
-    <result column="s_score" jdbcType="VARCHAR" property="sScore" />
+    <result column="s_name" jdbcType="VARCHAR" property="sName" />
+    <result column="s_birth" jdbcType="VARCHAR" property="sBirth" />
+    <result column="s_sex" jdbcType="VARCHAR" property="sSex" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -65,16 +66,16 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    s_id, c_id, s_score
+    s_id, s_name, s_birth, s_sex
   </sql>
-  <select id="selectByExample" parameterType="com.need.entity.ScoreExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.need.entity.StudentExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     'true' as QUERYID,
     <include refid="Base_Column_List" />
-    from score
+    from student
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -85,67 +86,76 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from score
+    from student
     where s_id = #{sId,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from score
+    delete from student
     where s_id = #{sId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.need.entity.ScoreExample">
-    delete from score
+  <delete id="deleteByExample" parameterType="com.need.entity.StudentExample">
+    delete from student
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.need.entity.Score">
-    insert into score (s_id, c_id, s_score
-      )
-    values (#{sId,jdbcType=VARCHAR}, #{cId,jdbcType=VARCHAR}, #{sScore,jdbcType=VARCHAR}
-      )
+  <insert id="insert" parameterType="com.need.entity.Student">
+    insert into student (s_id, s_name, s_birth, 
+      s_sex)
+    values (#{sId,jdbcType=VARCHAR}, #{sName,jdbcType=VARCHAR}, #{sBirth,jdbcType=VARCHAR}, 
+      #{sSex,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.need.entity.Score">
-    insert into score
+  <insert id="insertSelective" parameterType="com.need.entity.Student">
+    insert into student
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="sId != null">
         s_id,
       </if>
-      <if test="cId != null">
-        c_id,
+      <if test="sName != null">
+        s_name,
       </if>
-      <if test="sScore != null">
-        s_score,
+      <if test="sBirth != null">
+        s_birth,
+      </if>
+      <if test="sSex != null">
+        s_sex,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="sId != null">
         #{sId,jdbcType=VARCHAR},
       </if>
-      <if test="cId != null">
-        #{cId,jdbcType=VARCHAR},
+      <if test="sName != null">
+        #{sName,jdbcType=VARCHAR},
       </if>
-      <if test="sScore != null">
-        #{sScore,jdbcType=VARCHAR},
+      <if test="sBirth != null">
+        #{sBirth,jdbcType=VARCHAR},
+      </if>
+      <if test="sSex != null">
+        #{sSex,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.need.entity.ScoreExample" resultType="java.lang.Long">
-    select count(*) from score
+  <select id="countByExample" parameterType="com.need.entity.StudentExample" resultType="java.lang.Long">
+    select count(*) from student
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update score
+    update student
     <set>
       <if test="record.sId != null">
         s_id = #{record.sId,jdbcType=VARCHAR},
       </if>
-      <if test="record.cId != null">
-        c_id = #{record.cId,jdbcType=VARCHAR},
+      <if test="record.sName != null">
+        s_name = #{record.sName,jdbcType=VARCHAR},
       </if>
-      <if test="record.sScore != null">
-        s_score = #{record.sScore,jdbcType=VARCHAR},
+      <if test="record.sBirth != null">
+        s_birth = #{record.sBirth,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sSex != null">
+        s_sex = #{record.sSex,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -153,30 +163,35 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update score
+    update student
     set s_id = #{record.sId,jdbcType=VARCHAR},
-      c_id = #{record.cId,jdbcType=VARCHAR},
-      s_score = #{record.sScore,jdbcType=VARCHAR}
+      s_name = #{record.sName,jdbcType=VARCHAR},
+      s_birth = #{record.sBirth,jdbcType=VARCHAR},
+      s_sex = #{record.sSex,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.need.entity.Score">
-    update score
+  <update id="updateByPrimaryKeySelective" parameterType="com.need.entity.Student">
+    update student
     <set>
-      <if test="cId != null">
-        c_id = #{cId,jdbcType=VARCHAR},
+      <if test="sName != null">
+        s_name = #{sName,jdbcType=VARCHAR},
       </if>
-      <if test="sScore != null">
-        s_score = #{sScore,jdbcType=VARCHAR},
+      <if test="sBirth != null">
+        s_birth = #{sBirth,jdbcType=VARCHAR},
+      </if>
+      <if test="sSex != null">
+        s_sex = #{sSex,jdbcType=VARCHAR},
       </if>
     </set>
     where s_id = #{sId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.need.entity.Score">
-    update score
-    set c_id = #{cId,jdbcType=VARCHAR},
-      s_score = #{sScore,jdbcType=VARCHAR}
+  <update id="updateByPrimaryKey" parameterType="com.need.entity.Student">
+    update student
+    set s_name = #{sName,jdbcType=VARCHAR},
+      s_birth = #{sBirth,jdbcType=VARCHAR},
+      s_sex = #{sSex,jdbcType=VARCHAR}
     where s_id = #{sId,jdbcType=VARCHAR}
   </update>
 </mapper>

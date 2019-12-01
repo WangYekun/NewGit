@@ -1,4 +1,4 @@
-package com.need;
+package com.need.mapper;
 
 import com.need.entity.Teacher;
 import com.need.entity.TeacherExample;

@@ -1,4 +1,4 @@
-package com.need;
+package com.need.mapper;
 
 import com.need.entity.Score;
 import com.need.entity.ScoreExample;
