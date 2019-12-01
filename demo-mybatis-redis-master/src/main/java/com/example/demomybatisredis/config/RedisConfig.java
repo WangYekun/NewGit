@@ -18,6 +18,8 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 import java.io.Serializable;
 import java.time.Duration;
 
+import static org.springframework.data.redis.cache.RedisCacheConfiguration.defaultCacheConfig;
+
 @Configuration
 @AutoConfigureAfter(RedisAutoConfiguration.class)
 @EnableCaching
@@ -40,15 +42,13 @@ public class RedisConfig {
      */
     @Bean
     public CacheManager cacheManager(RedisConnectionFactory factory) {
-        // 配置序列化
-        // defaultCacheConfig().entryTtl(Duration.ofSeconds(60));查看源码设置过期时间 这里可以随机设置过期时间，防止redis雪崩
-
-        RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofSeconds(60));
+        // 配置序列化,查看源码设置过期时间 这里可以随机设置过期时间，防止redis雪崩
+        defaultCacheConfig().entryTtl(Duration.ofSeconds(60));
+        RedisCacheConfiguration config = defaultCacheConfig().entryTtl(Duration.ofSeconds(60));
         RedisCacheConfiguration redisCacheConfiguration = config
                 .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(new StringRedisSerializer()))
                 .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(new GenericJackson2JsonRedisSerializer()));
         return RedisCacheManager.builder(factory).cacheDefaults(redisCacheConfiguration).build();
     }
-
 
 }
