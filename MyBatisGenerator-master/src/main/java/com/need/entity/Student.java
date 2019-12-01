@@ -1,4 +1,4 @@
-package com.example.mybatis.model;
+package com.need.entity;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -8,7 +8,7 @@ import java.io.Serializable;
 /**
  * 学生表
  *
- * @author shawn
+ * @author WangYeKun
  * @date 2019/12/01
  */
 @Data

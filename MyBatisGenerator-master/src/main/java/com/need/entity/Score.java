@@ -1,32 +1,33 @@
-package com.example.mybatis.model;
+package com.need.entity;
 
 import io.swagger.annotations.ApiModelProperty;
-import java.io.Serializable;
 import lombok.Data;
+
+import java.io.Serializable;
 
 /**
  * 成绩表
  *
- * @author shawn
+ * @author WangYeKun
  * @date 2019/12/01
  */
 @Data
 public class Score implements Serializable {
     /**
-    *成绩id
-    */
+     * 成绩id
+     */
     @ApiModelProperty(value = "成绩id")
     private String sId;
 
     /**
-    *课程id
-    */
+     * 课程id
+     */
     @ApiModelProperty(value = "课程id")
     private String cId;
 
     /**
-    *成绩
-    */
+     * 成绩
+     */
     @ApiModelProperty(value = "成绩")
     private String sScore;
 

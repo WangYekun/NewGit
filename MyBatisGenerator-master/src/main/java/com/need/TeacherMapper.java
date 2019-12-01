@@ -1,7 +1,7 @@
-package com.example.mybatis.mapper;
+package com.need;
 
-import com.example.mybatis.model.Teacher;
-import com.example.mybatis.model.TeacherExample;
+import com.need.entity.Teacher;
+import com.need.entity.TeacherExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

@@ -1,4 +1,4 @@
-package com.example.mybatis.model;
+package com.need.entity;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -6,48 +6,26 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * 课程表
+ * 教师表
  *
- * @author shawn
+ * @author WangYeKun
  * @date 2019/12/01
  */
 @Data
-public class Course implements Serializable {
+public class Teacher implements Serializable {
     /**
-     * 课程id
+     * 教师id
      */
-    @ApiModelProperty(value = "课程id")
-    private String cId;
-
-    /**
-     * 课程名字
-     */
-    @ApiModelProperty(value = "课程名字")
-    private String cName;
-
-    /**
-     * 老师id
-     */
-    @ApiModelProperty(value = "老师id")
+    @ApiModelProperty(value = "教师id")
     private String tId;
 
+    /**
+     * 教师名字
+     */
+    @ApiModelProperty(value = "教师名字")
+    private String tName;
+
     private static final long serialVersionUID = 1L;
-
-    public String getcId() {
-        return cId;
-    }
-
-    public void setcId(String cId) {
-        this.cId = cId;
-    }
-
-    public String getcName() {
-        return cName;
-    }
-
-    public void setcName(String cName) {
-        this.cName = cName;
-    }
 
     public String gettId() {
         return tId;
@@ -57,15 +35,22 @@ public class Course implements Serializable {
         this.tId = tId;
     }
 
+    public String gettName() {
+        return tName;
+    }
+
+    public void settName(String tName) {
+        this.tName = tName;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", cId=").append(cId);
-        sb.append(", cName=").append(cName);
         sb.append(", tId=").append(tId);
+        sb.append(", tName=").append(tName);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

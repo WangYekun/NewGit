@@ -1,7 +1,7 @@
-package com.example.mybatis.mapper;
+package com.need;
 
-import com.example.mybatis.model.Score;
-import com.example.mybatis.model.ScoreExample;
+import com.need.entity.Score;
+import com.need.entity.ScoreExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
