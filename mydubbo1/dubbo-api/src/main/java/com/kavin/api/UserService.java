@@ -7,5 +7,5 @@ package com.kavin.api;
  */
 public interface UserService {
 
-    public String sayHello(String name);
+    String sayHello(String name);
 }
