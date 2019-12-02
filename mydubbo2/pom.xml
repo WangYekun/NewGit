@@ -49,7 +49,6 @@
     <finalName>mydubbo</finalName>
   </build>
   <modules>
-  	<module>myServices</module>
   	<module>myProvider</module>
   	<module>myConsumer</module>
   	<module>myService</module>
