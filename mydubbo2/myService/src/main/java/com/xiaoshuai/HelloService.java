@@ -1,5 +1,8 @@
 package com.xiaoshuai;
 
+/**
+ * @author lenovo
+ */
 public interface HelloService {
-	public String speakHello(String name);
+    String speakHello(String name);
 }
