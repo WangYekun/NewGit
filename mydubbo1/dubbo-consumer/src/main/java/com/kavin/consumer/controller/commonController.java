@@ -8,12 +8,12 @@ import com.kavin.consumer.service.LoginService;
 @Controller
 public class commonController {
 
-	@Autowired
-	private LoginService loginService;
-	
-	@RequestMapping("/")
-	public String getUser() {
-		System.out.println(loginService.getMsg());
-		return "index";
-	}
+    @Autowired
+    private LoginService loginService;
+
+    @RequestMapping("/")
+    public String getUser() {
+        System.out.println(loginService.getMsg());
+        return "index";
+    }
 }

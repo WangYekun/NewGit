@@ -1,7 +1,9 @@
 package com.kavin.api;
 
+/**
+ * @author lenovo
+ */
 public interface CompanyService {
 
-	
-	public String getCompanyName(String CompanyId);
+    String getCompanyName(String CompanyId);
 }
