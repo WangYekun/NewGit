@@ -8,9 +8,9 @@ import java.util.Map;
 public class ApiTestV2 {
     public static void main(String[] args) throws Exception {
         testPay();
-        //testCancel();
-        //testRefund();
-        //testQuery();
+        testCancel();
+        testRefund();
+        testQuery();
     }
 
     public static void testQuery() throws Exception {
@@ -48,6 +48,5 @@ public class ApiTestV2 {
             }
         }
     }
-
 
 }
