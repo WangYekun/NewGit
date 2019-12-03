@@ -4,11 +4,7 @@ import java.net.URLEncoder;
 import java.util.Map;
 import java.util.TreeMap;
 
-/**
- * @author lenovo
- */
 public class SybPayService {
-
     public void pay(long trxamt, String reqsn, String body, String remark, String notify_url) throws Exception {
         //		HttpConnectionUtil http = new HttpConnectionUtil(SybConstants.SYB_APIURL+"/pay");
         //		http.init();
@@ -59,7 +55,7 @@ public class SybPayService {
     public Map<String, String> refund(long trxamt, String reqsn, String oldtrxid, String oldreqsn) throws Exception {
         HttpConnectionUtil http = new HttpConnectionUtil(SybConstants.SYB_APIURL + "/refund");
         http.init();
-        TreeMap<String, String> params = new TreeMap<>();
+        TreeMap<String, String> params = new TreeMap<String, String>();
         params.put("cusid", SybConstants.SYB_CUSID);
         params.put("appid", SybConstants.SYB_APPID);
         params.put("version", "11");
@@ -71,7 +67,8 @@ public class SybPayService {
         params.put("sign", SybUtil.sign(params, SybConstants.SYB_APPKEY));
         byte[] bys = http.postParams(params, true);
         String result = new String(bys, "UTF-8");
-        return handleResult(result);
+        Map<String, String> map = handleResult(result);
+        return map;
     }
 
     public Map<String, String> query(String reqsn, String trxid) throws Exception {
@@ -87,9 +84,10 @@ public class SybPayService {
         params.put("sign", SybUtil.sign(params, SybConstants.SYB_APPKEY));
         byte[] bys = http.postParams(params, true);
         String result = new String(bys, "UTF-8");
-        return handleResult(result);
-
+        Map<String, String> map = handleResult(result);
+        return map;
     }
+
 
     public static Map<String, String> handleResult(String result) throws Exception {
         Map map = SybUtil.json2Obj(result, Map.class);
