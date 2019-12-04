@@ -4,7 +4,11 @@ import java.net.URLEncoder;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * @author lenovo
+ */
 public class SybPayService {
+
     /**
      * 统一支付
      *
@@ -24,7 +28,7 @@ public class SybPayService {
         params.put("cusid", SybConstants.SYB_CUSID);
         // 应用ID
         params.put("appid", SybConstants.SYB_APPID);
-        // 版本号
+        // 版本号(可为空)
         params.put("version", "12");
         // 交易金额(分)
         params.put("trxamt", String.valueOf(trxamt));
@@ -32,10 +36,15 @@ public class SybPayService {
         params.put("reqsn", reqsn);
         // 字符编码
         params.put("charset", "utf-8");
-        // 交易结果通知地址()
+        /*
+            页面跳转同步通知页面路径
+            回调地址(页面跳转同步通知页面路径/交易完成后，平台会按照此地址将用户的交易结果页面重定向到商户网站。
+            同时该参数为返回商户按钮的指向链接，如果商户不传递该参数，则返回按钮指向为空页面。)
+        */
         params.put("returl", "http://baidu.com");
-        /* 回调地址(页面跳转同步通知页面路径/交易完成后，平台会按照此地址将用户的交易结果页面重定向到商户网站。
-           同时该参数为返回商户按钮的指向链接，如果商户不传递该参数，则返回按钮指向为空页面。)
+        /*
+            服务器异步通知页面路径()
+        *   交易完成后，平台会将交易结果以后台通知的方式发送到该地址,商户需要以此通知判断用户订单交易是否成功。
         */
         params.put("notify_url", notify_url);
         // 订单标题
@@ -163,7 +172,6 @@ public class SybPayService {
         return handleResult(result);
     }
 
-
     public static Map<String, String> handleResult(String result) throws Exception {
         Map map = SybUtil.json2Obj(result, Map.class);
         if (map == null) {
@@ -184,6 +192,5 @@ public class SybPayService {
             throw new Exception(map.get("retmsg").toString());
         }
     }
-
 
 }

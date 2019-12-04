@@ -28,8 +28,7 @@ public class SybPayService {
         params.put("sign", SybUtil.sign(params, SybConstants.SYB_APPKEY));
         byte[] bys = http.postParams(params, true);
         String result = new String(bys, "UTF-8");
-        Map<String, String> map = handleResult(result);
-        return map;
+        return handleResult(result);
 
     }
 
@@ -67,8 +66,7 @@ public class SybPayService {
         params.put("sign", SybUtil.sign(params, SybConstants.SYB_APPKEY));
         byte[] bys = http.postParams(params, true);
         String result = new String(bys, "UTF-8");
-        Map<String, String> map = handleResult(result);
-        return map;
+        return handleResult(result);
     }
 
     public Map<String, String> query(String reqsn, String trxid) throws Exception {
