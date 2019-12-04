@@ -70,13 +70,13 @@ public class SybUtil {
      */
     public static String getValidatecode(int n) {
         Random random = new Random();
-        String sRand = "";
-        n = n == 0 ? 4 : n;// default 4
+        StringBuilder sRand = new StringBuilder();
+        n = n == 0 ? 4 : n;
         for (int i = 0; i < n; i++) {
             String rand = String.valueOf(random.nextInt(10));
-            sRand += rand;
+            sRand.append(rand);
         }
-        return sRand;
+        return sRand.toString();
     }
 
     /**
