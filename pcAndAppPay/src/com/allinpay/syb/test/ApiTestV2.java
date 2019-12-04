@@ -8,9 +8,9 @@ import java.util.Map;
 public class ApiTestV2 {
     public static void main(String[] args) throws Exception {
         testPay();
-        testCancel();
-        testRefund();
-        testQuery();
+        //        testCancel();
+        //        testRefund();
+        //        testQuery();
     }
 
     public static void testQuery() throws Exception {
@@ -36,7 +36,10 @@ public class ApiTestV2 {
     public static void testPay() throws Exception {
         SybPayService service = new SybPayService();
         String reqsn = String.valueOf(System.currentTimeMillis());
-        Map<String, String> map = service.pay(1, reqsn, "W04", "标题", "备注", "", "123", "http://baidu.com", "", "", "", "");
+        // 微信支付
+        Map<String, String> map = service.pay(1, reqsn, "W01", "标题", "备注", "", "123", "http://baidu.com", "", "", "", "");
+        // 支付宝支付
+        //        Map<String, String> map = service.pay(1, reqsn, "A01", "标题", "备注", "", "123", "http://baidu.com", "", "", "", "");
         print(map);
     }
 

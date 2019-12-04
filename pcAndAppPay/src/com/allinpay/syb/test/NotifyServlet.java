@@ -1,16 +1,15 @@
 package com.allinpay.syb.test;
 
-import java.io.IOException;
-import java.util.Map;
-import java.util.TreeMap;
+import com.allinpay.syb.lib.SybConstants;
+import com.allinpay.syb.lib.SybUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.allinpay.syb.lib.SybConstants;
-import com.allinpay.syb.lib.SybUtil;
+import java.io.IOException;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class NotifyServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -19,10 +18,12 @@ public class NotifyServlet extends HttpServlet {
         super();
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("get method,no deal");
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("接收到通知");
         request.setCharacterEncoding("gbk");//通知传输的编码为GBK
