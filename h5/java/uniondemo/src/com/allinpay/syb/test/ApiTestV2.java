@@ -39,7 +39,7 @@ public class ApiTestV2 {
     public static void testPay() throws Exception {
         SybPayService service = new SybPayService();
         String reqsn = String.valueOf(System.currentTimeMillis());
-        service.pay(1, reqsn, "", "title", "remark");
+        service.pay(1, reqsn, "订单测试", "title", "remark");
         System.out.println("商户的交易订单号(保证商户平台唯一) = " + reqsn);
 
     }

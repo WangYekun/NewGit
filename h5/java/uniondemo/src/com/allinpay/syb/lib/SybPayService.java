@@ -40,6 +40,7 @@ public class SybPayService {
             页面跳转同步通知页面路径
             回调地址(页面跳转同步通知页面路径/交易完成后，平台会按照此地址将用户的交易结果页面重定向到商户网站。
             同时该参数为返回商户按钮的指向链接，如果商户不传递该参数，则返回按钮指向为空页面。)
+            支付成功后跳转的网站
         */
         params.put("returl", "http://baidu.com");
         /*
@@ -58,7 +59,7 @@ public class SybPayService {
         for (Map.Entry<String, String> entry : params.entrySet()) {
             sb.append(entry.getKey()).append("=").append(URLEncoder.encode(entry.getValue(), "UTF-8")).append("&");
         }
-        System.out.println("https://test.allinpaygd.com/apiweb/h5unionpay/unionorder?" + sb.substring(0, sb.length() - 1));
+        System.out.println("https://syb.allinpay.com/apiweb/h5unionpay/unionorder?" + sb.substring(0, sb.length() - 1));
         //		byte[] bys = http.postParams(params, true);
         //		String result = new String(bys,"UTF-8");
         //		Map<String,String> map = handleResult(result);
