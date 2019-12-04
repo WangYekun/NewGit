@@ -1,0 +1,96 @@
+From 1d2941a28c31386414c9e8c1066d91219a5b73b3 Mon Sep 17 00:00:00 2001
+From: WangYekun <849907942@qq.com>
+Date: Wed, 4 Dec 2019 11:16:09 +0800
+Subject: [PATCH] =?UTF-8?q?fix:=20test=20payment=EF=BC=9A?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ pcAndAppPay/src/com/allinpay/syb/lib/SybConstants.java   |  2 +-
+ pcAndAppPay/src/com/allinpay/syb/test/ApiTestV2.java     | 11 +++++++----
+ pcAndAppPay/src/com/allinpay/syb/test/NotifyServlet.java | 13 +++++++------
+ 3 files changed, 15 insertions(+), 11 deletions(-)
+
+diff --git a/pcAndAppPay/src/com/allinpay/syb/lib/SybConstants.java b/pcAndAppPay/src/com/allinpay/syb/lib/SybConstants.java
+index 28e2f2b..fcc4585 100644
+--- a/pcAndAppPay/src/com/allinpay/syb/lib/SybConstants.java
++++ b/pcAndAppPay/src/com/allinpay/syb/lib/SybConstants.java
+@@ -4,5 +4,5 @@ public class SybConstants {
+     public static final String SYB_CUSID = "990440153996000";
+     public static final String SYB_APPID = "00000000";
+     public static final String SYB_APPKEY = "43df939f1e7f5c6909b3f4b63f893994";
+-    public static final String SYB_APIURL = "https://vsp.allinpay.com/apiweb/unitorder";//生产环境
++    public static final String SYB_APIURL = "https://vsp.allinpay.com/apiweb/unitorder";
+ }
+diff --git a/pcAndAppPay/src/com/allinpay/syb/test/ApiTestV2.java b/pcAndAppPay/src/com/allinpay/syb/test/ApiTestV2.java
+index 121fed3..990b4cc 100644
+--- a/pcAndAppPay/src/com/allinpay/syb/test/ApiTestV2.java
++++ b/pcAndAppPay/src/com/allinpay/syb/test/ApiTestV2.java
+@@ -8,9 +8,9 @@ import java.util.Map;
+ public class ApiTestV2 {
+     public static void main(String[] args) throws Exception {
+         testPay();
+-        testCancel();
+-        testRefund();
+-        testQuery();
++        //        testCancel();
++        //        testRefund();
++        //        testQuery();
+     }
+ 
+     public static void testQuery() throws Exception {
+@@ -36,7 +36,10 @@ public class ApiTestV2 {
+     public static void testPay() throws Exception {
+         SybPayService service = new SybPayService();
+         String reqsn = String.valueOf(System.currentTimeMillis());
+-        Map<String, String> map = service.pay(1, reqsn, "W04", "标题", "备注", "", "123", "http://baidu.com", "", "", "", "");
++        // 微信支付
++        Map<String, String> map = service.pay(1, reqsn, "W01", "标题", "备注", "", "123", "http://baidu.com", "", "", "", "");
++        // 支付宝支付
++        //        Map<String, String> map = service.pay(1, reqsn, "A01", "标题", "备注", "", "123", "http://baidu.com", "", "", "", "");
+         print(map);
+     }
+ 
+diff --git a/pcAndAppPay/src/com/allinpay/syb/test/NotifyServlet.java b/pcAndAppPay/src/com/allinpay/syb/test/NotifyServlet.java
+index cda35be..e937209 100644
+--- a/pcAndAppPay/src/com/allinpay/syb/test/NotifyServlet.java
++++ b/pcAndAppPay/src/com/allinpay/syb/test/NotifyServlet.java
+@@ -1,16 +1,15 @@
+ package com.allinpay.syb.test;
+ 
+-import java.io.IOException;
+-import java.util.Map;
+-import java.util.TreeMap;
++import com.allinpay.syb.lib.SybConstants;
++import com.allinpay.syb.lib.SybUtil;
+ 
+ import javax.servlet.ServletException;
+ import javax.servlet.http.HttpServlet;
+ import javax.servlet.http.HttpServletRequest;
+ import javax.servlet.http.HttpServletResponse;
+-
+-import com.allinpay.syb.lib.SybConstants;
+-import com.allinpay.syb.lib.SybUtil;
++import java.io.IOException;
++import java.util.Map;
++import java.util.TreeMap;
+ 
+ public class NotifyServlet extends HttpServlet {
+     private static final long serialVersionUID = 1L;
+@@ -19,10 +18,12 @@ public class NotifyServlet extends HttpServlet {
+         super();
+     }
+ 
++    @Override
+     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+         System.out.println("get method,no deal");
+     }
+ 
++    @Override
+     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+         System.out.println("接收到通知");
+         request.setCharacterEncoding("gbk");//通知传输的编码为GBK
+-- 
+2.9.0.windows.1
+
