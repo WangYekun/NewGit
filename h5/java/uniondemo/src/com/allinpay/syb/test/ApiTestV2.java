@@ -5,12 +5,15 @@ import com.allinpay.syb.lib.SybPayService;
 import java.util.Map;
 
 
+/**
+ * @author lenovo
+ */
 public class ApiTestV2 {
     public static void main(String[] args) throws Exception {
         testPay();
-//        testCancel();
-//        testRefund();
-//        testQuery();
+        //        testCancel();
+        //        testRefund();
+        //        testQuery();
     }
 
     public static void testQuery() throws Exception {
@@ -36,7 +39,8 @@ public class ApiTestV2 {
     public static void testPay() throws Exception {
         SybPayService service = new SybPayService();
         String reqsn = String.valueOf(System.currentTimeMillis());
-        service.pay(1, reqsn, "", "标题", "备注");
+        service.pay(1, reqsn, "", "title", "remark");
+        System.out.println("商户的交易订单号(保证商户平台唯一) = " + reqsn);
 
     }
 

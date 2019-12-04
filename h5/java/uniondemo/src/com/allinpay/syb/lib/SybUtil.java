@@ -8,6 +8,9 @@ import java.util.Map;
 import java.util.Random;
 import java.util.TreeMap;
 
+/**
+ * @author lenovo
+ */
 public class SybUtil {
     /**
      * js转化为实体
@@ -57,8 +60,9 @@ public class SybUtil {
      * @return
      */
     public static boolean isEmpty(String s) {
-        if (s == null || "".equals(s.trim()))
+        if (s == null || "".equals(s.trim())) {
             return true;
+        }
         return false;
     }
 
@@ -87,8 +91,10 @@ public class SybUtil {
      * @throws Exception
      */
     public static String sign(TreeMap<String, String> params, String appkey) throws Exception {
-        if (params.containsKey("sign"))//签名明文组装不包含sign字段
+        //签名明文组装不包含sign字段
+        if (params.containsKey("sign")) {
             params.remove("sign");
+        }
         params.put("key", appkey);
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, String> entry : params.entrySet()) {
@@ -99,7 +105,8 @@ public class SybUtil {
         if (sb.length() > 0) {
             sb.deleteCharAt(sb.length() - 1);
         }
-        String sign = md5(sb.toString().getBytes("UTF-8"));//记得是md5编码的加签
+        // 记得是md5编码的加签
+        String sign = md5(sb.toString().getBytes("UTF-8"));
         params.remove("key");
         return sign;
     }
