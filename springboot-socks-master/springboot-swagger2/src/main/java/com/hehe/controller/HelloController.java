@@ -11,7 +11,7 @@ public class HelloController {
 
     @ApiOperation("欢迎界面")
     @GetMapping("/")
-    public String hehe(){
+    public String hehe() {
         return "redirect:/swagger-ui.html";
     }
 

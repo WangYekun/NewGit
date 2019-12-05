@@ -17,9 +17,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 /**
- *  三、快速单元测试
- *  {@link SpringBootTest}  基于Boot环境
- *  {@link MockMvc} 基于SpringMVC进行测试
+ * 三、快速单元测试
+ * {@link SpringBootTest}  基于Boot环境
+ * {@link MockMvc} 基于SpringMVC进行测试
  */
 
 @RunWith(SpringRunner.class)
@@ -27,16 +27,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc //开启MockMvc
 public class SpringbootHelloworldApplicationTests {
 
-	@Autowired
-	private MockMvc mockMvc; //注入MockMvc
+    // 注入MockMvc
+    @Autowired
+    private MockMvc mockMvc;
 
-	@Test
-	public void testHelloController() throws Exception {
-
-		 mockMvc.perform(get("/")) //请求方式+地址
-				.andDo(print()) //打印效果
-				.andExpect(status().isOk()) //预期状态
-				.andExpect(content().string(containsString("Hello World")));//预期返回值
-	}
+    @Test
+    public void testHelloController() throws Exception {
+        //请求方式+地址
+        mockMvc.perform(get("/")).andDo(print()) //打印效果
+               .andExpect(status().isOk()) //预期状态
+               .andExpect(content().string(containsString("Hello World")));//预期返回值
+    }
 
 }
