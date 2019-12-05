@@ -13,7 +13,11 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.Map;
 
+/**
+ * @author lenovo
+ */
 public class HttpConnectionUtil {
+
     private HttpURLConnection conn;
     private String connectUrl;
 

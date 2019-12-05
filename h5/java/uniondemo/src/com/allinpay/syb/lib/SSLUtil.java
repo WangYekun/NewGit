@@ -15,6 +15,7 @@ import java.security.cert.X509Certificate;
  * @author Administrator
  */
 public class SSLUtil implements X509TrustManager {
+
     private SSLSocketFactory sslFactory = null;
 
     private SSLUtil() {

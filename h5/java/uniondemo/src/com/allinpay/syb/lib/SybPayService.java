@@ -173,6 +173,13 @@ public class SybPayService {
         return handleResult(result);
     }
 
+    /**
+     * 处理结果
+     *
+     * @param result
+     * @return
+     * @throws Exception
+     */
     public static Map<String, String> handleResult(String result) throws Exception {
         Map map = SybUtil.json2Obj(result, Map.class);
         if (map == null) {

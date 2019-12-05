@@ -12,6 +12,7 @@ import java.util.TreeMap;
  * @author lenovo
  */
 public class SybUtil {
+
     /**
      * js转化为实体
      *
@@ -122,4 +123,5 @@ public class SybUtil {
         }
         return false;
     }
+
 }
