@@ -1,6 +1,5 @@
 package com.hehe.tools;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
@@ -10,8 +9,8 @@ import java.util.List;
  */
 public class BaseServiceImpl<T> implements BaseService<T> {
 
-    @Autowired
-    private Mapper<T> mapper;//泛型装配
+    //泛型装配
+    private Mapper<T> mapper;
 
     @Override
     public List<T> list(T entity) {
@@ -20,7 +19,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 
     @Override
     public T get(T entity) {
-        return  mapper.selectOne(entity);
+        return mapper.selectOne(entity);
     }
 
     @Override

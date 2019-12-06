@@ -7,11 +7,10 @@ public class R<T> implements Serializable {
     private static final long serialVersionUID = -4577255781088498763L;
     private static final int OK = 0;
     private static final int FAIL = 1;
-    private static final int UNAUTHORIZED = 2;
 
     private T data; //服务端数据
     private int status = OK; //状态码
-    private String msg = ""; //描述信息
+    private String msg = "200"; //描述信息
 
     //APIS
     public static R isOk(){

@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-@Table(name = "T_USER")
+@Table(name = "t_user")
 public class User {
     @Id
     @Column(name = "USER_ID")
@@ -17,7 +17,10 @@ public class User {
     @Column(name = "PHONE_NUM")
     private String mobileNum;
     @Transient
-    private String other; //跟数据库无关的字段使用@Transient标记或移至VO类。
+    /**
+     跟数据库无关的字段使用@Transient标记或移至VO类
+     **/
+    private String other;
 
     public String getUserId() {
         return userId;
