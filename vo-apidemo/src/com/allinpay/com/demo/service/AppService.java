@@ -1,8 +1,8 @@
 package com.allinpay.com.demo.service;
 
-import java.util.Map;
-
 import com.allinpay.com.demo.bean.QueryRsp;
+
+import java.util.Map;
 
 public interface AppService {
 	/**

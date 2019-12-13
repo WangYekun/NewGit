@@ -1,28 +1,22 @@
 package com.allinpay.com.demo;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import com.allinpay.com.demo.common.AppConstants;
+import com.allinpay.com.demo.common.FuncUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.allinpay.com.demo.bean.BaseRsp;
-import com.allinpay.com.demo.bean.QueryRsp;
-import com.allinpay.com.demo.common.AppConstants;
-import com.allinpay.com.demo.common.FuncUtil;
-import com.allinpay.com.demo.service.AppService;
-import com.allinpay.com.demo.service.AppServiceImpl;
+import java.io.IOException;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class NotifyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public NotifyServlet() {
-        super();
-    }
+
+	public NotifyServlet() {
+		super();
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("get method,no deal");
@@ -46,7 +40,7 @@ public class NotifyServlet extends HttpServlet {
 			response.flushBuffer();
 		}
 	}
-	
+
 	private TreeMap<String, String> getParams(HttpServletRequest request){
 		TreeMap<String, String> map = new TreeMap<String, String>();
 		Map reqMap = request.getParameterMap();

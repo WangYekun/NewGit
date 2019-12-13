@@ -1,15 +1,5 @@
 package com.allinpay.com.demo;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import com.allinpay.com.demo.bean.BaseRsp;
 import com.allinpay.com.demo.bean.QueryRsp;
 import com.allinpay.com.demo.common.AppConstants;
@@ -17,13 +7,21 @@ import com.allinpay.com.demo.common.FuncUtil;
 import com.allinpay.com.demo.service.AppService;
 import com.allinpay.com.demo.service.AppServiceImpl;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.Map;
+import java.util.TreeMap;
+
 public class OrderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public OrderServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	public OrderServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -58,12 +56,12 @@ public class OrderServlet extends HttpServlet {
 			response.flushBuffer();
 		}
 	}
-	
+
 	private String getDefaultMsg(String errmsg){
 		BaseRsp rsp = BaseRsp.getFaildResult(errmsg);
 		return FuncUtil.toJsonResult(rsp);
 	}
-	
+
 	private TreeMap<String, String> getParams(HttpServletRequest request){
 		TreeMap<String, String> map = new TreeMap<String, String>();
 		Map reqMap = request.getParameterMap();
