@@ -37,7 +37,7 @@ public class ApiTestV2 {
         print(map);
     }
 
-    public static void testPay() throws Exception {
+    public static void  testPay() throws Exception {
         SybPayService service = new SybPayService();
         String reqsn = String.valueOf(System.currentTimeMillis());
         service.pay(1, reqsn, "订单测试", "title", "remark");

@@ -1,17 +1,19 @@
-package com.allinpay.com.demo;
+package demo;
 
-import com.allinpay.com.demo.bean.BaseRsp;
-import com.allinpay.com.demo.bean.QueryRsp;
-import com.allinpay.com.demo.common.AppConstants;
-import com.allinpay.com.demo.common.FuncUtil;
-import com.allinpay.com.demo.service.AppService;
-import com.allinpay.com.demo.service.AppServiceImpl;
+import demo.bean.BaseRsp;
+import demo.bean.QueryRsp;
+import demo.common.AppConstants;
+import demo.common.FuncUtil;
+import demo.service.AppService;
+import demo.service.AppServiceImpl;
+import net.sf.json.JSONObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -20,20 +22,18 @@ public class OrderServlet extends HttpServlet {
 
     public OrderServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        System.out.println("get method,no deal");
+        doPost(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
         System.out.println("接收到请求");
-        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding(String.valueOf(StandardCharsets.UTF_8));
+        request.setCharacterEncoding(String.valueOf(StandardCharsets.UTF_8));
         TreeMap<String, String> params = getParams(request);
         AppService service = new AppServiceImpl();
         String rspStr = "";
@@ -41,17 +41,18 @@ public class OrderServlet extends HttpServlet {
             //验签成功,进行业务处理
             if (FuncUtil.validSign(params, AppConstants.APPKEY)) {
                 QueryRsp rsp = service.queryOrder(params);
+                System.out.println("====================rsp==================== " + JSONObject.fromObject(rsp));
                 rspStr = FuncUtil.toJsonResult(rsp);
             } else {//验签失败
-                rspStr = getDefaultMsg("验签失败");
+                rspStr = getDefaultMsg("SIGN FAIL");
             }
-        } catch (Exception e) {//处理异常
+        } catch (Exception e) {
             e.printStackTrace();
-            rspStr = getDefaultMsg("处理异常");
+            rspStr = getDefaultMsg("HANDLE EXCEPTION");
         } finally {
-            System.out.println("返回数据:" + rspStr);
+            System.out.println("RETURN DATA:" + rspStr);
             if (!FuncUtil.isEmpty(rspStr)) {
-                response.getOutputStream().write(rspStr.getBytes("utf-8"));
+                response.getOutputStream().write(rspStr.getBytes(StandardCharsets.UTF_8));
             }
             response.flushBuffer();
         }
@@ -63,7 +64,11 @@ public class OrderServlet extends HttpServlet {
     }
 
     private TreeMap<String, String> getParams(HttpServletRequest request) {
-        TreeMap<String, String> map = new TreeMap<String, String>();
+        return getStringStringTreeMap(request);
+    }
+
+    static TreeMap<String, String> getStringStringTreeMap(HttpServletRequest request) {
+        TreeMap<String, String> map = new TreeMap<>();
         Map reqMap = request.getParameterMap();
         for (Object key : reqMap.keySet()) {
             map.put(key.toString(), ((String[]) reqMap.get(key))[0]);

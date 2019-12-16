@@ -1,4 +1,4 @@
-package com.allinpay.com.demo.common;
+package demo.common;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;

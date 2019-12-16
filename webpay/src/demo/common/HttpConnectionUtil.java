@@ -1,4 +1,4 @@
-package com.allinpay.com.demo.common;
+package demo.common;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
@@ -11,6 +11,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 public class HttpConnectionUtil {
@@ -82,7 +83,7 @@ public class HttpConnectionUtil {
 
     public byte[] postParams(String message, boolean readreturn) throws IOException {
         DataOutputStream out = new DataOutputStream(conn.getOutputStream());
-        out.write(message.getBytes("UTF-8"));
+        out.write(message.getBytes(StandardCharsets.UTF_8));
         out.close();
         if (readreturn) {
             return readBytesFromStream(conn.getInputStream());
