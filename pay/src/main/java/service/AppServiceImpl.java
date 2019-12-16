@@ -1,8 +1,8 @@
-package com.allinpay.com.demo.service;
+package service;
 
-import com.allinpay.com.demo.bean.QueryRsp;
-import com.allinpay.com.demo.common.AppConstants;
-import com.allinpay.com.demo.common.FuncUtil;
+import bean.QueryRsp;
+import common.AppConstants;
+import common.FuncUtil;
 
 import java.util.Map;
 

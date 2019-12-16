@@ -1,11 +1,11 @@
 package com.allinpay.com.demo.common;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
+import com.allinpay.com.demo.bean.BaseRsp;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+import sun.misc.BASE64Encoder;
+
+import java.io.*;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
@@ -16,24 +16,9 @@ import java.text.Collator;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Random;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
-import sun.misc.BASE64Encoder;
-
-import com.allinpay.com.demo.bean.BaseRsp;
 
 
 @SuppressWarnings({ "rawtypes","unchecked"})
@@ -256,7 +241,7 @@ public class FuncUtil {
 
 	/**
 	 * 构建in字符串
-	 * @param str
+	 * param str
 	 * @return
 	 */
 	public static String buildInStr(List list){

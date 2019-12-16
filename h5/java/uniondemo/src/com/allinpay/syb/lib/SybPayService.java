@@ -56,7 +56,6 @@ public class SybPayService {
         params.put("randomstr", SybUtil.getValidatecode(8));
         // 签名(MD5签名/RSA(SHA1WithRSA)签名逻辑/生成随机数算法)
         params.put("sign", SybUtil.sign(params, SybConstants.SYB_APPKEY));
-        // 终端号
         for (Map.Entry<String, String> entry : params.entrySet()) {
             sb.append(entry.getKey()).append("=").append(URLEncoder.encode(entry.getValue(), "UTF-8")).append("&");
         }
