@@ -11,46 +11,60 @@ import java.util.TreeMap;
 
 public class Test {
 
-    // 生产
+    /**
+     * 生产
+     */
     public static String url = "https://vsp.allinpay.com/apiweb";
 
-    // 测试
+    /**
+     * 测试
+     */
     //    public static String url = "http://113.108.182.3:10080/apiweb";
     public static void main(String[] args) throws Exception {
         query();
     }
 
-    //���ײ�ѯ
+    /**
+     * 查询订单
+     *
+     * @throws Exception
+     */
     public static void query() throws Exception {
         HttpConnectionUtil http = new HttpConnectionUtil(url + "/tranx/queryorder");
         http.init();
         TreeMap<String, String> params = new TreeMap<String, String>();
 
-        // 商户号
-        params.put("cusid", AppConstants.CUSID);
         // 应用ID
         params.put("appid", AppConstants.APPID);
+        // 业务流水号(如订单号，保单号，缴费编号等)
+        params.put("bizseq", "1576484927748");
+        // 商户号
+        params.put("cusid", AppConstants.CUSID);
+        // mdkey
+        params.put("key", AppConstants.APPKEY);
+        // 随机时间戳
+        params.put("randomstr", System.currentTimeMillis() + "");
+        //        params.put("termid", "https://syb.allinpay.com/apiweb/h5unionpay/unionorder?appid=00013002&body=%E8%AE%A2%E5%8D%95%E6%B5%8B%E8%AF%95&charset=utf-8&cusid=110588072991996&notify_url=remark&randomstr=94040212&remark=title&reqsn=1576484927748&returl=http%3A%2F%2Fbaidu.com&sign=0ac7b7fe076ef31cba4db6b5fd235a29&trxamt=1&version=12");//
+        // 交易时间
+        params.put("timestamp", String.valueOf(System.currentTimeMillis()));//
         // 终端类型
         params.put("trxcode", AppConstants.TRXCODE_QUERYORDER);
+        // 测试号
+        params.put("trxreserve", "###05#");
+        // 交易时间
+        params.put("version", "12");
         // 字符编码
         params.put("charset", AppConstants.CHARSET);
         // 版本号
-        params.put("version", "12");
+        params.put("trxdate", "1217");//
         // 交易时间
-        //        params.put("trxdate", System.currentTimeMillis() + "_");//
-        // 交易时间
-        params.put("timestamp", "0329");//
         // 订单号
         params.put("orderid", "1490754282058");//orderid为第三方系统的订单号，优先使用trxid查询
-        //        params.put("termid","");
-        //        params.put("bizseq","");
-        //        params.put("trxreserve","");
         //        params.put("trxid", "171343370");//填入交易的通联交易ID-》trxid，trxid与orderid不可以同时为空
         //        params.put("termno", "");//可空
         // 0不重发通知，1重发通知
         params.put("resendnotify", "0");
         // 随机字符串(时间搓格式)
-        params.put("randomstr", System.currentTimeMillis() + "");
         // 验签方式
         params.put("sign", sign(params));
         byte[] bys = http.postParams(params, true);
@@ -97,8 +111,8 @@ public class Test {
      * @throws Exception
      */
     public static String sign(TreeMap<String, String> params) throws Exception {
-        if (params.containsKey("sign"))//签名明文组装不包含sign字段
-        {
+        // 签名明文组装不包含sign字段
+        if (params.containsKey("sign")) {
             params.remove("sign");
         }
         params.put("key", AppConstants.APPKEY);
@@ -111,11 +125,19 @@ public class Test {
         if (sb.length() > 0) {
             sb.deleteCharAt(sb.length() - 1);
         }
-        String sign = md5(sb.toString().getBytes("UTF-8"));//记得是md5编码的加签
+        // 记得是md5编码的加签
+        String sign = md5(sb.toString().getBytes("UTF-8"));
         params.remove("key");
         return sign;
     }
 
+    /**
+     * 处理结果
+     *
+     * @param result
+     * @return
+     * @throws Exception
+     */
     public static Map<String, String> handleResult(String result) throws Exception {
         Map map = FuncUtil.json2Obj(result, Map.class);
         if (map == null) {
@@ -136,4 +158,5 @@ public class Test {
             throw new Exception(map.get("retmsg").toString());
         }
     }
+
 }
