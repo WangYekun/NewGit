@@ -99,7 +99,7 @@ public class FuncUtil {
     }
 
     public static Timestamp getCurrTimestamp() {
-        return new Timestamp(new Date().getTime());
+        return new Timestamp(System.currentTimeMillis());
     }
 
 

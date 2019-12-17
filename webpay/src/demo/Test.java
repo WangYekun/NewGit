@@ -2,8 +2,8 @@ package demo;
 
 import demo.common.AppConstants;
 import demo.common.FuncUtil;
-import demo.common.HttpConnectionUtil;
 
+import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -16,7 +16,8 @@ public class Test {
     /**
      * 生产
      */
-    public static String url = "https://vsp.allinpay.com/apiweb";
+    //    public static String url = "https://vsp.allinpay.com/apiweb";
+    public static String url = "https://vsp.allinpay.com/apiweb/tranx/queryorder?";
 
     /**
      * 测试
@@ -33,25 +34,42 @@ public class Test {
      * @throws Exception
      */
     public static void query() throws Exception {
-        HttpConnectionUtil http = new HttpConnectionUtil(url + "/tranx/queryorder");
-        http.init();
+        StringBuilder sb = new StringBuilder();
+        //        HttpConnectionUtil http = new HttpConnectionUtil(url + "/tranx/queryorder");
+        //        http.init();
         TreeMap<String, String> params = new TreeMap<>();
-        // 应用ID
-        params.put("appid", AppConstants.APPID);
-        // 业务流水号(如订单号，保单号，缴费编号等)
-        //        params.put("bizseq", "1576484927748");
-        // 商户号
         params.put("cusid", AppConstants.CUSID);
-        // md5key
-        params.put("key", AppConstants.APPKEY);
-        // 随机字符串(时间搓格式)
+        params.put("appid", AppConstants.APPID);
+        params.put("termno", AppConstants.END_NUM);
+        //        业务流水号(如订单号，保单号，缴费编号等)
+        params.put("trxdate", FuncUtil.formatTime(new Date(), "MMdd"));
+        params.put("orderid", String.valueOf(System.currentTimeMillis()));
+        //        params.put("trxid", String.valueOf(System.currentTimeMillis()));
+        //        params.put("bizseq", "1576484927748");
         params.put("randomstr", FuncUtil.getRandcode(8));
-        // termid
+        params.put("resendnotify", "0");
+//        params.put("bizseq", "987654321a");
+        params.put("sign", sign(params));
+
+
+     /*   appid=00000155
+        bizseq=7654321
+        cusid=990605055336000
+        key=43df939f1e7f5c6909b3f4b63f893994
+                randomstr=000004
+        termid=00000013
+        timestamp=20171218181137
+        trxcode=T001
+        trxreserve=05#
+        version=01
+        sign=3f6f87ad04be874e15ea820f98c8cb2f
+*/
+       /* // termid
         //        params.put("termid", "https://syb.allinpay.com/apiweb/h5unionpay/unionorder?appid=00013002&body=%E8%AE%A2%E5%8D%95%E6%B5%8B%E8%AF%95&charset=utf-8&cusid=110588072991996&notify_url=remark&randomstr=94040212&remark=title&reqsn=1576484927748&returl=http%3A%2F%2Fbaidu.com&sign=0ac7b7fe076ef31cba4db6b5fd235a29&trxamt=1&version=12");//
         // 交易时间
         params.put("timestamp", FuncUtil.formatTime(new Date(), "yyyyMMddHHmmss"));
         // 终端类型
-        params.put("trxcode", AppConstants.TRXCODE_QUERYORDER);
+        //        params.put("trxcode", AppConstants.TRXCODE_QUERYORDER);
         // 测试号
         params.put("trxreserve", "###05#");
         // 交易时间
@@ -59,24 +77,21 @@ public class Test {
         // 字符编码
         params.put("charset", AppConstants.CHARSET);
         // 版本号
-        params.put("trxdate", FuncUtil.formatTime(new Date(), "MMdd"));
         // 交易时间
         // 订单号/orderid为第三方系统的订单号，优先使用trxid查询
-        params.put("orderid", String.valueOf(System.currentTimeMillis()));
         //填入交易的通联交易ID-》trxid，trxid与orderid不可以同时为空
         //        params.put("trxid", AppConstants.END_NUM);
-        params.put("termno", AppConstants.END_NUM);
         // 0不重发通知，1重发通知
-        params.put("resendnotify", "0");
-        // 验签方式
-        params.put("sign", sign(params));
-        byte[] bys = http.postParams(params, true);
-        String result = new String(bys, StandardCharsets.UTF_8);
-        System.out.println("ret:" + result);
-        Map<String, String> map = handleResult(result);
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            System.out.println(entry.getKey() + ":" + entry.getValue());
+        // 验签方式(md5KEY)*/
+        //        byte[] bys = http.postParams(params, true);
+        //        String result = new String(bys, StandardCharsets.UTF_8);
+        //        System.out.println("ret:" + result);
+        //        Map<String, String> map = handleResult(result);
+        for (Map.Entry<String, String> entry : params.entrySet()) {
+            sb.append(entry.getKey()).append("=").append(URLEncoder.encode(entry.getValue(), "UTF-8")).append("&");
         }
+        System.out.println(url + sb.substring(0, sb.length() - 1));
+
     }
 
     /**
@@ -129,7 +144,7 @@ public class Test {
             sb.deleteCharAt(sb.length() - 1);
         }
         // 记得是md5编码的加签
-        String sign = md5(sb.toString().getBytes("UTF-8"));
+        String sign = md5(sb.toString().getBytes(StandardCharsets.UTF_8));
         params.remove("key");
         return sign;
     }
