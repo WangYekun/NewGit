@@ -48,8 +48,19 @@ public class Test {
         //        params.put("bizseq", "1576484927748");
         params.put("randomstr", FuncUtil.getRandcode(8));
         params.put("resendnotify", "0");
-//        params.put("bizseq", "987654321a");
+        //        params.put("bizseq", "987654321a");
+/*        params.put("timestamp", FuncUtil.formatTime(new Date(), "yyyyMMddHHmmss"));
+        // 终端类型
+        //        params.put("trxcode", AppConstants.TRXCODE_QUERYORDER);
+        // 测试号
+        params.put("trxreserve", "###05#");
+        // 交易时间
+        params.put("version", "12");
+        // 字符编码
+        params.put("charset", AppConstants.CHARSET);*/
         params.put("sign", sign(params));
+
+
 
 
      /*   appid=00000155
@@ -64,25 +75,16 @@ public class Test {
         version=01
         sign=3f6f87ad04be874e15ea820f98c8cb2f
 */
-       /* // termid
+        // termid
         //        params.put("termid", "https://syb.allinpay.com/apiweb/h5unionpay/unionorder?appid=00013002&body=%E8%AE%A2%E5%8D%95%E6%B5%8B%E8%AF%95&charset=utf-8&cusid=110588072991996&notify_url=remark&randomstr=94040212&remark=title&reqsn=1576484927748&returl=http%3A%2F%2Fbaidu.com&sign=0ac7b7fe076ef31cba4db6b5fd235a29&trxamt=1&version=12");//
         // 交易时间
-        params.put("timestamp", FuncUtil.formatTime(new Date(), "yyyyMMddHHmmss"));
-        // 终端类型
-        //        params.put("trxcode", AppConstants.TRXCODE_QUERYORDER);
-        // 测试号
-        params.put("trxreserve", "###05#");
-        // 交易时间
-        params.put("version", "12");
-        // 字符编码
-        params.put("charset", AppConstants.CHARSET);
         // 版本号
         // 交易时间
         // 订单号/orderid为第三方系统的订单号，优先使用trxid查询
         //填入交易的通联交易ID-》trxid，trxid与orderid不可以同时为空
         //        params.put("trxid", AppConstants.END_NUM);
         // 0不重发通知，1重发通知
-        // 验签方式(md5KEY)*/
+        // 验签方式(md5KEY)
         //        byte[] bys = http.postParams(params, true);
         //        String result = new String(bys, StandardCharsets.UTF_8);
         //        System.out.println("ret:" + result);
