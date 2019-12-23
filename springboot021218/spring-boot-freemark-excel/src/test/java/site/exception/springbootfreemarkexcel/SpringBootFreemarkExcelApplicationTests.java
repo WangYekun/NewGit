@@ -2,15 +2,10 @@ package site.exception.springbootfreemarkexcel;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
-import lombok.Builder;
-import lombok.Data;
-import org.assertj.core.util.Maps;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.ui.freemarker.FreeMarkerConfigurationFactory;
-import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import site.exception.springbootfreemarkexcel.entity.Commodity;
 
 import java.io.File;
@@ -28,10 +23,10 @@ public class SpringBootFreemarkExcelApplicationTests {
 		Configuration configuration = new Configuration(Configuration.VERSION_2_3_28);
 
 		// 设置模板文件的父目录
-		configuration.setDirectoryForTemplateLoading(new File("/Users/a123123/Work/tmp_files"));
+		configuration.setDirectoryForTemplateLoading(new File("D:\\company"));
 
 		// 加载模板文件
-		Template template = configuration.getTemplate("/excel_template.xml", "UTF-8");
+		Template template = configuration.getTemplate("/1.xml", "UTF-8");
 
 		// 数据准备，可以是从数据库中查询，这里为了方便演示，手动 new 了
 		Map<String, Object> data = new HashMap<>();
@@ -59,7 +54,7 @@ public class SpringBootFreemarkExcelApplicationTests {
 		data.put("commodities", commodities);
 
 		// 生成 excel 文件
-		template.process(data, new FileWriter("/Users/a123123/Work/tmp_files/excelByFreemark.xls"));
+		template.process(data, new FileWriter("D:\\company/excelByFreemark.xls"));
 	}
 
 
