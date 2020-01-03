@@ -105,12 +105,14 @@ public class ArticleService {
         if (state == 2) {
             return articleMapper.deleteArticleById(aids);
         } else {
-            return articleMapper.updateArticleState(aids, 2);//放入到回收站中
+            //放入到回收站中
+            return articleMapper.updateArticleState(aids, 2);
         }
     }
 
     public int restoreArticle(Integer articleId) {
-        return articleMapper.updateArticleStateById(articleId, 1); // 从回收站还原在原处
+        // 从回收站还原在原处
+        return articleMapper.updateArticleStateById(articleId, 1);
     }
 
     public Article getArticleById(Long aid) {
