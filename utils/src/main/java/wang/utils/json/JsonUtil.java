@@ -1,4 +1,3 @@
-/*
 package wang.utils.json;
 
 import com.alibaba.fastjson.JSONObject;
@@ -7,16 +6,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.HashMap;
 import java.util.Map;
 
-*/
 /**
  * @author Mark
  * @version 1.0
- * @date 2020/1/9 19:52
  * @description JSON字符串转化工具
- *//*
-
-
-
+ * @date 2020/1/9 19:52
+ */
 public class JsonUtil {
 
     private static ObjectMapper objectMapper;
@@ -46,4 +41,3 @@ public class JsonUtil {
         System.out.println("mapParam.get(\"1\") = " + mapParam.get("1"));
     }
 }
-*/

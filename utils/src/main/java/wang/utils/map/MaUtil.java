@@ -19,7 +19,6 @@ public class MaUtil {
                 {"BLUE", "#0000FF"}
         });
         System.out.println("二维数组map = " + colorMap);
-
-
+        System.out.println("MapUtil.isEmpty(colorMap) = " + MapUtil.isEmpty(colorMap));
     }
 }
