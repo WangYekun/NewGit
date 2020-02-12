@@ -11,7 +11,7 @@ import cn.hutool.log.StaticLog;
  * @description 日志门面工具类
  */
 public class LogUtils {
-    public static final Log LOG_FACTORY = LogFactory.get(LogUtils.class);
+    private static final Log LOG_FACTORY = LogFactory.get(LogUtils.class);
 
     public static void main(String[] args) {
         StaticLog.info("This is static {} log", LogUtils.class);

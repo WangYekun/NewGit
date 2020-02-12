@@ -8,7 +8,7 @@ import java.util.Arrays;
  * @author Mark
  * @version 1.0
  * @date 2020/1/15 18:27
- * @description 数据工具类
+ * @description 数组工具类
  */
 public class ArrayListUtils {
     public static void main(String[] args) {
