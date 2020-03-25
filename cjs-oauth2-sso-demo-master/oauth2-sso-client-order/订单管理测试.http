@@ -1,0 +1,22 @@
+### 登录测试
+GET localhost:8080/login/login
+
+### 订单列表测试
+GET localhost:8083/orderSystem/order/list
+
+### 会员列表测试
+GET localhost:8082/memberSystem/member/list
+
+### 会员列表信息
+GET localhost:8082/memberSystem/member/info
+
+### 关于会员信息
+GET localhost:8082/memberSystem/member/me
+
+### 添加会员信息
+GET localhost:8082/memberSystem/member/add
+
+### 会员详情信息
+GET localhost:8082/memberSystem/member/detail
+
+###

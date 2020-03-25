@@ -13,7 +13,7 @@ import cn.hutool.log.StaticLog;
  * @date 2020/1/20 16:06
  * @description 验证码工具类
  */
-public class AuthCodeUtil {
+public class AuthCodeUtils {
     public static void main(String[] args) {
         //定义图形验证码的长和宽
         LineCaptcha lineCaptcha = CaptchaUtil.createLineCaptcha(200, 100);
@@ -43,7 +43,6 @@ public class AuthCodeUtil {
         // 扭曲干扰验证码
         // 定义图形验证码的长、宽、验证码字符数、干扰线宽度
         ShearCaptcha captcha2 = CaptchaUtil.createShearCaptcha(200, 100, 4, 4);
-        // ShearCaptcha captcha = new ShearCaptcha(200, 100, 4, 4);
         // 图形验证码写出，可以写出到文件，也可以写出到流
         captcha2.write("d:/shear.png");
         // 验证图形验证码的有效性，返回boolean值

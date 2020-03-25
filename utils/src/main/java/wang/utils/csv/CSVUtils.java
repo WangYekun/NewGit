@@ -13,7 +13,7 @@ import java.util.List;
  * @date 2020/1/20 14:11
  * @description CSV读写工具
  */
-public class CSVUtil {
+public class CSVUtils {
     public static void main(String[] args) {
         //指定路径和编码
         CsvWriter writer = CsvUtil.getWriter("D:/Program Files/testWrite.csv", CharsetUtil.CHARSET_UTF_8);

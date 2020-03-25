@@ -10,7 +10,7 @@ import java.util.List;
  * @date 2020/1/20 15:17
  * @description DFA查找工具类
  */
-public class DFASearch {
+public class DFASearchUtils {
     public static void main(String[] args) {
         WordTree tree = new WordTree();
         tree.addWord("大");
