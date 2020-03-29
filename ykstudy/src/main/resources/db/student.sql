@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS `student`;
+CREATE TABLE `student`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增id',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '姓名',
+  `age` int(11) NULL DEFAULT 0 COMMENT '年龄',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '学习->学生表' ROW_FORMAT = Dynamic;
+
+INSERT INTO student(ID, NAME, AGE) VALUES (1,'学生',19);

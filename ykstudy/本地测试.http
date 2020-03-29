@@ -1,0 +1,37 @@
+### 更新学生数据
+PUT http://localhost:8081/api/student/update
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "id": 13,
+  "age": 3,
+  "name": "测试王我"
+}
+
+### 新增学生数据
+POST http://localhost:8081/api/student/create
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "age": 23,
+  "name": "新增测试"
+}
+
+### 删除学生数据
+DELETE http://localhost:8081/api/student/delete/11
+
+### 查询学生数据
+GET http://localhost:8081/api/student/findAllList
+
+### 根据id来查询学生数据
+GET http://localhost:8081/api/student/getStudentById/13
+
+### 欢迎页面
+GET http://localhost:8081/index.html
+
+
+
