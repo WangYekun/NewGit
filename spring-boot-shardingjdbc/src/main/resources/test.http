@@ -1,0 +1,17 @@
+### 查询所有图书
+
+GET http://localhost:8080/book
+
+### 保存数据
+POST http://localhost:8080/book
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "name": "新增测试",
+  "count": 1
+}
+
+###
+
