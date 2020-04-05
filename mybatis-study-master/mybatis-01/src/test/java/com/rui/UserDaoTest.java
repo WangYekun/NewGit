@@ -13,8 +13,7 @@ public class UserDaoTest {
     @Test
     public void test(){
         //第一步：获得SqlSession对象
-        SqlSession sqlSession = MyBatisUtils.getSqlSession();
-        try{
+        try (SqlSession sqlSession = MyBatisUtils.getSqlSession()) {
             //方式一：getMapper
             UserMapper mapper = sqlSession.getMapper(UserMapper.class);
             List<User> userList = mapper.getUserList();
@@ -27,10 +26,7 @@ public class UserDaoTest {
             }
 
         }
-        finally {
-            //关闭SqlSession
-            sqlSession.close();
-        }
+        //关闭SqlSession
     }
 
     @Test
@@ -46,7 +42,7 @@ public class UserDaoTest {
     public void addUser(){
         SqlSession sqlSession = MyBatisUtils.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        int res = mapper.addUser(new User(4, "哈哈", "123333"));
+        int res = mapper.addUser(new User(7, "哈哈", "123333"));
         if (res>0){
             System.out.println("插入成功");
         }
@@ -61,7 +57,7 @@ public class UserDaoTest {
         SqlSession sqlSession = MyBatisUtils.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         HashMap<String, Object> map = new HashMap<>();
-        map.put("userId",4);
+        map.put("userId",7);
         map.put("userName","王五");
         map.put("password","23333");
         mapper.addUser2(map);

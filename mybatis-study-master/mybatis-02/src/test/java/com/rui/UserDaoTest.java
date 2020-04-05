@@ -6,15 +6,13 @@ import com.rui.utils.MyBatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
-import java.util.HashMap;
 import java.util.List;
 
 public class UserDaoTest {
     @Test
-    public void test(){
+    public void test() {
         //第一步：获得SqlSession对象
-        SqlSession sqlSession = MyBatisUtils.getSqlSession();
-        try{
+        try (SqlSession sqlSession = MyBatisUtils.getSqlSession()) {
             //方式一：getMapper
             UserMapper mapper = sqlSession.getMapper(UserMapper.class);
             List<User> userList = mapper.getUserList();
@@ -27,14 +25,11 @@ public class UserDaoTest {
             }
 
         }
-        finally {
-            //关闭SqlSession
-            sqlSession.close();
-        }
+        //关闭SqlSession
     }
 
     @Test
-    public void getUserList(){
+    public void getUserList() {
         SqlSession sqlSession = MyBatisUtils.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         List<User> userList = mapper.getUserList();
