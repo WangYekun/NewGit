@@ -14,7 +14,7 @@ import java.util.List;
 
 public class MyTest {
     @Test
-    public void InitBlog() {
+    public void initBlog() {
         SqlSession sqlSession = MyBatisUtils.getSqlSession();
         BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
         Blog blog = new Blog();
