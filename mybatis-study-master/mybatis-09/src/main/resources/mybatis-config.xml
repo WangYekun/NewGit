@@ -11,20 +11,20 @@
     </properties>
 
     <settings>
-    <!--标准日志工厂实现-->
+        <!--标准日志工厂实现-->
         <setting name="logImpl" value="STDOUT_LOGGING"/>
         <!--显式的开启全局缓存-->
         <setting name="cacheEnabled" value="true"/>
     </settings>
-   <!-- <settings>
-        <setting name="logImpl" value="LOG4J"/>
-    </settings>-->
+    <!-- <settings>
+         <setting name="logImpl" value="LOG4J"/>
+     </settings>-->
 
 
     <!--可以给实体类起别名-->
     <typeAliases>
-<!--        <typeAlias type="rui.pojo.User" alias="User"/>-->
-<!--        <package name="com.rui.pojo"/>-->
+        <!--        <typeAlias type="rui.pojo.User" alias="User"/>-->
+        <!--        <package name="com.rui.pojo"/>-->
     </typeAliases>
     <!--environments配置环境组-->
     <!--default默认环境-->

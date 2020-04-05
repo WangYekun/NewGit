@@ -6,11 +6,9 @@ import com.rui.utils.MyBatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
-import java.util.List;
-
 public class MyTest {
     @Test
-    public void test(){
+    public void test() {
         SqlSession sqlSession = MyBatisUtils.getSqlSession();
         SqlSession sqlSession2 = MyBatisUtils.getSqlSession();
 
@@ -24,7 +22,7 @@ public class MyTest {
         User user2 = mapper2.queryUserById(1);
         System.out.println(user2);
 
-        System.out.println(user==user2);
+        System.out.println(user == user2);
         sqlSession2.close();
 
 

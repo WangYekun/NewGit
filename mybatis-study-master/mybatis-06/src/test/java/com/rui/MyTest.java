@@ -19,7 +19,7 @@ public class MyTest {
         System.out.println(teacher);
         sqlSession.close();
     }
-    @Test
+ /*   @Test
     public void testStudent(){
         SqlSession sqlSession = MyBatisUtils.getSqlSession();
         StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
@@ -28,7 +28,7 @@ public class MyTest {
             System.out.println(student);
         }
         sqlSession.close();
-    }
+    }*/
 
     @Test
     public void testStudent2(){

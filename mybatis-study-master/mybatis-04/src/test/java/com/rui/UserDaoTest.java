@@ -16,13 +16,13 @@ public class UserDaoTest {
     static Logger logger = Logger.getLogger(UserDaoTest.class);
 
     @Test
-    public void getUserByRowBounds(){
+    public void getUserByRowBounds() {
         SqlSession sqlSession = MyBatisUtils.getSqlSession();
         //RowBounds实现
         RowBounds rowBounds = new RowBounds(1, 2);
 
         //通过java代码层面实现分页
-        List<User> userList = sqlSession.selectList("com.rui.dao.UserMapper.getUserByRowBounds",null,rowBounds);
+        List<User> userList = sqlSession.selectList("com.rui.dao.UserMapper.getUserByRowBounds", null, rowBounds);
 
         for (User user : userList) {
             System.out.println(user);
