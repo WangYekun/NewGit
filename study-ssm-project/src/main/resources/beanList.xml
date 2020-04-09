@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="book" class="com.kuang.pojo.Books">
+        <property name="bookName" value="书名测试"/>
+        <property name="bookCounts" value="2"/>
+        <property name="bookID" value="10"/>
+        <property name="detail" value="detail"/>
+    </bean>
+
+    <bean id="address" class="com.kuang.pojo.Address">
+        <property name="name" value="name2222"/>
+    </bean>
+
+
+
+    <bean id="student" class="com.kuang.pojo.Student">
+        <property name="hubby">
+            <map>
+                <entry key="1" value="2"/>
+                <entry key="3" value="3"/>
+                <entry key="4" value="4"/>
+                <entry key="5" value="5"/>
+                <entry key="11" value="8"/>
+            </map>
+        </property>
+        <property name="address" ref="address" />
+        <property name="name" value="名称"/>
+        <property name="properties" value="2"/>
+        <property name="sex" value="男"/>
+        <property name="mouse">
+            <list>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+            </list>
+        </property>
+    </bean>
+</beans>
