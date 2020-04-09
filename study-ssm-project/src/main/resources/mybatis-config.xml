@@ -4,11 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+
     <typeAliases>
         <package name="com.kuang.pojo"/>
     </typeAliases>
     <mappers>
-        <mapper resource="com/kuang/dao/BookMapper.xml"/>
+        <mapper class="com.kuang.dao.BookMapper.xml"/>
     </mappers>
 
 </configuration>

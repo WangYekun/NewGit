@@ -5,6 +5,8 @@
 
 <mapper namespace="com.kuang.dao.BookMapper">
 
+
+
     <!--增加一个Book-->
     <insert id="addBook" parameterType="Books">
         insert into ssmbuild.books(bookName,bookCounts,detail)
