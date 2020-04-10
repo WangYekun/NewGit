@@ -25,5 +25,5 @@ public class Student {
     private List<String> mouse;
     private Map<String,String> hubby;
     private Properties properties;
-
+    private String[] arrays;
 }

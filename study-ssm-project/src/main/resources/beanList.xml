@@ -32,7 +32,13 @@
         </property>
         <property name="address" ref="address" />
         <property name="name" value="名称"/>
-        <property name="properties" value="2"/>
+        <property name="properties" >
+            <props >
+                <prop key="1">1</prop>
+                <prop key="2">2</prop>
+                <prop key="3">3</prop>
+            </props>
+        </property>
         <property name="sex" value="男"/>
         <property name="mouse">
             <list>
@@ -40,6 +46,14 @@
                 <value>2</value>
                 <value>3</value>
             </list>
+        </property>
+        <property name="arrays">
+            <array>
+                <value>3</value>
+                <value>3</value>
+                <value>3</value>
+                <value>3</value>
+            </array>
         </property>
     </bean>
 </beans>
