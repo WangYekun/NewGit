@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace=绑定一个对应的mapper接口-->
+<mapper namespace="com.personal.study.dao.StudentMapper">
+    <!--select查询语句-->
+    <select id="getList" resultType="com.personal.study.pojo.Student">
+       select * from student.student
+   </select>
+
+    <select id="getById" resultType="com.personal.study.pojo.Student" parameterType="int">
+        select * from student.student where id = #{id};
+    </select>
+
+    <insert id="add" parameterType="java.util.Map">
+        insert into student.student (id, name) values (#{id},#{name});
+    </insert>
+
+    <update id="update" parameterType="com.personal.study.pojo.Student">
+        update student.student set name = #{name} where id=#{id} ;
+    </update>
+
+    <delete id="delete" parameterType="int">
+        delete from student.student where id = #{id};
+    </delete>
+
+</mapper>

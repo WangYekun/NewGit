@@ -5,8 +5,6 @@
 
 <mapper namespace="com.kuang.dao.BookMapper">
 
-
-
     <!--增加一个Book-->
     <insert id="addBook" parameterType="Books">
         insert into ssmbuild.books(bookName,bookCounts,detail)
@@ -15,20 +13,20 @@
 
     <!--根据id删除一个Book-->
     <delete id="deleteBookById" parameterType="int">
-        delete from ssmbuild.books where bookID=#{bookID}
+        delete from ssmbuild.books where bookId=#{bookId}
     </delete>
 
     <!--更新Book-->
     <update id="updateBook" parameterType="Books">
         update ssmbuild.books
         set bookName = #{bookName},bookCounts = #{bookCounts},detail = #{detail}
-        where bookID = #{bookID}
+        where bookId = #{bookId}
     </update>
 
     <!--根据id查询,返回一个Book-->
     <select id="queryBookById" resultType="Books">
         select * from ssmbuild.books
-        where bookID = #{bookID}
+        where bookId = #{bookId}
     </select>
 
     <!--查询全部Book-->

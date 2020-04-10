@@ -10,7 +10,7 @@
     <bean id="book" class="com.kuang.pojo.Books">
         <property name="bookName" value="书名测试"/>
         <property name="bookCounts" value="2"/>
-        <property name="bookID" value="10"/>
+        <property name="bookId" value="10"/>
         <property name="detail" value="detail"/>
     </bean>
 
