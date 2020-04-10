@@ -12,7 +12,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author Mark
  * @version 1.0
  * @date 2020/4/9 15:58
- * @description 测试beanLisr.xml
+ * @description 测试beanList.xml
  */
 public class TestBeanList {
 
@@ -23,6 +23,5 @@ public class TestBeanList {
         ApplicationContext context = new ClassPathXmlApplicationContext("beanList.xml");
         LOGGER.info("this is book bean for IOC [{}]", context.getBean("book", Books.class));
         LOGGER.info("this is student bean for IOC [{}]", context.getBean("student", Student.class));
-
     }
 }

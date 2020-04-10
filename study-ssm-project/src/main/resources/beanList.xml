@@ -54,5 +54,13 @@
                 <value>3</value>
             </array>
         </property>
+        <property name="set">
+            <set>
+                <value>1</value>
+                <value>12</value>
+                <value>13</value>
+                <value>14</value>
+            </set>
+        </property>
     </bean>
 </beans>

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 
 /**
  * @author Mark
@@ -26,4 +27,5 @@ public class Student {
     private Map<String,String> hubby;
     private Properties properties;
     private String[] arrays;
+    private Set set;
 }
