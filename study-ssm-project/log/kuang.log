@@ -103,3 +103,10 @@
 [DEBUG][20-04-09][org.springframework.beans.factory.support.DefaultListableBeanFactory]Creating shared instance of singleton bean 'student'
 [INFO][20-04-09][com.kuang.TestBeanList]this is book bean for IOC [Books(bookID=10, bookName=书名测试, bookCounts=2, detail=detail)]
 [INFO][20-04-09][com.kuang.TestBeanList]this is student bean for IOC [Student(name=名称, sex=男, address=Address{name='name2222'}, mouse=[1, 2, 3], hubby={1=2, 3=3, 4=4, 5=5, 11=8}, properties={3=3, 2=2, 1=1}, arrays=[3, 3, 3, 3])]
+[DEBUG][20-04-10][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@61ca2dfa
+[DEBUG][20-04-10][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loaded 3 bean definitions from class path resource [beanList.xml]
+[DEBUG][20-04-10][org.springframework.beans.factory.support.DefaultListableBeanFactory]Creating shared instance of singleton bean 'book'
+[DEBUG][20-04-10][org.springframework.beans.factory.support.DefaultListableBeanFactory]Creating shared instance of singleton bean 'address'
+[DEBUG][20-04-10][org.springframework.beans.factory.support.DefaultListableBeanFactory]Creating shared instance of singleton bean 'student'
+[INFO][20-04-10][com.kuang.TestBeanList]this is book bean for IOC [Books(bookID=10, bookName=书名测试, bookCounts=2, detail=detail)]
+[INFO][20-04-10][com.kuang.TestBeanList]this is student bean for IOC [Student(name=名称, sex=男, address=Address{name='name2222'}, mouse=[1, 2, 3], hubby={1=2, 3=3, 4=4, 5=5, 11=8}, properties={3=3, 2=2, 1=1}, arrays=[3, 3, 3, 3])]

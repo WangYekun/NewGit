@@ -19,7 +19,6 @@
     </bean>
 
 
-
     <bean id="student" class="com.kuang.pojo.Student">
         <property name="hubby">
             <map>
@@ -30,10 +29,10 @@
                 <entry key="11" value="8"/>
             </map>
         </property>
-        <property name="address" ref="address" />
+        <property name="address" ref="address"/>
         <property name="name" value="名称"/>
-        <property name="properties" >
-            <props >
+        <property name="properties">
+            <props>
                 <prop key="1">1</prop>
                 <prop key="2">2</prop>
                 <prop key="3">3</prop>
