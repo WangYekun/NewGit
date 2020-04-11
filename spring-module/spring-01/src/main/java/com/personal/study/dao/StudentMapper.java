@@ -26,7 +26,7 @@ public interface StudentMapper {
      * @param id 学生id
      * @return 学生对象
      */
-    Student getById(String id);
+    Student getById(int id);
 
     /**
      * 添加学生对象
@@ -34,7 +34,7 @@ public interface StudentMapper {
      * @param map 学生对象
      * @return 学生对象
      */
-    Student add(Map<String,Object> map);
+    int add(Map<String, Object> map);
 
     /**
      * 根据学生id删除学生对象
@@ -42,7 +42,7 @@ public interface StudentMapper {
      * @param id 学生id
      * @return 成功删除1, 失败0
      */
-    int delete(String id);
+    int delete(Integer id);
 
     /**
      * 根据学生id更新学生对象

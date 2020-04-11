@@ -13,7 +13,7 @@
         select * from student.student where id = #{id};
     </select>
 
-    <insert id="add" parameterType="java.util.Map">
+    <insert id="add" parameterType="java.util.Map" >
         insert into student.student (id, name) values (#{id},#{name});
     </insert>
 

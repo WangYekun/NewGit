@@ -1,11 +1,8 @@
 package com.personal.study.pojo;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-import java.util.Set;
+import lombok.NoArgsConstructor;
 
 /**
  * @author Mark
@@ -14,13 +11,15 @@ import java.util.Set;
  * @description 学生类
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Student {
 
     private Integer id;
 
     private String name;
 
-    private String sex;
+/*    private String sex;
 
     private List<String> strings;
 
@@ -28,8 +27,6 @@ public class Student {
 
     private Properties properties;
 
-    private Set<String> set;
-
-
+    private Set<String> set;*/
 
 }
