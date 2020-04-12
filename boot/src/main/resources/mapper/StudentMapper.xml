@@ -52,7 +52,7 @@
         #{name,jdbcType=VARCHAR},
       </if>
       <if test="tid != null">
-        #{tid,jdbcType=INTEGER},
+        #{tid,jdbcType=INTEGER}
       </if>
     </trim>
   </insert>

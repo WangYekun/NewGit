@@ -9,10 +9,8 @@
         <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime" />
     </resultMap>
     <insert id="insert" parameterType="com.spring.wang.eneity.Bolg">
-        insert into bolg (id, title, author,
-        creat_time)
-        values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR},
-        #{creatTime,jdbcType=TIMESTAMP})
+        insert into bolg (id, title, author,creat_time)
+        values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{creatTime,jdbcType=TIMESTAMP})
     </insert>
     <insert id="insertSelective" parameterType="com.spring.wang.eneity.Bolg">
         insert into bolg
@@ -41,7 +39,7 @@
                 #{author,jdbcType=VARCHAR},
             </if>
             <if test="creatTime != null">
-                #{creatTime,jdbcType=TIMESTAMP},
+                #{creatTime,jdbcType=TIMESTAMP}
             </if>
         </trim>
     </insert>
