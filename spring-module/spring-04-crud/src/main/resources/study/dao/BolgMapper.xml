@@ -7,14 +7,13 @@
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="author" jdbcType="VARCHAR" property="author" />
     <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime" />
-    <result column="views" jdbcType="INTEGER" property="views" />
   </resultMap>
   <insert id="insert" parameterType="study.dao.Bolg">
     <!--@mbg.generated-->
     insert into bolg (id, title, author, 
-      creat_time, views)
+      creat_time)
     values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, 
-      #{creatTime,jdbcType=TIMESTAMP}, #{views,jdbcType=INTEGER})
+      #{creatTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="study.dao.Bolg">
     <!--@mbg.generated-->
@@ -32,9 +31,6 @@
       <if test="creatTime != null">
         creat_time,
       </if>
-      <if test="views != null">
-        views,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -48,9 +44,6 @@
       </if>
       <if test="creatTime != null">
         #{creatTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="views != null">
-        #{views,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
