@@ -1,8 +1,5 @@
 package com.spring.wang.rest;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import java.io.*;
 
 /**
@@ -11,8 +8,6 @@ import java.io.*;
  * @date 2020/4/15 20:24
  * @description 读取PDF文档
  */
-@RestController
-@RequestMapping("/read")
 public class FileOperation {
 
     /**
