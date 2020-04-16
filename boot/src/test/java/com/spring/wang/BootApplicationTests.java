@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.io.File;
 import java.util.Date;
 
 
@@ -26,5 +27,13 @@ class BootApplicationTests {
         bl.insertSelective(bolg);
     }
 
+
+    @Test
+    void fileIsExists() {
+        File file = new File("." + File.separator +"sql.sql");
+        if (file.exists()) {
+            System.out.println(file);
+        }
+    }
 
 }
