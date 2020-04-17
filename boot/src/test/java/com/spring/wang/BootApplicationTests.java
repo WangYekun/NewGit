@@ -27,13 +27,4 @@ class BootApplicationTests {
         bl.insertSelective(bolg);
     }
 
-
-    @Test
-    void fileIsExists() {
-        File file = new File("." + File.separator +"sql.sql");
-        if (file.exists()) {
-            System.out.println(file);
-        }
-    }
-
 }
