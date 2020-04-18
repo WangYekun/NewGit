@@ -19,19 +19,21 @@ public class FileOperation {
     public static void main(String[] args) throws IOException {
 //        fileIsExists();
 //        listFile(file);
+        File file = new File("D:\\" + File.separator + "1.pdf");
+
 //        readFileUseByte(file);
-//        readFileUseChar(file);
+        readFileUseChar(file);
 //        writeByStream(file, s);
-//        writeByChar(file, s);
-
-
-        File file = new File("." + File.separator + "sql.sql");
-        String s = "学习好好好";
-        FileWriter fileWriter = new FileWriter(file, true);
-        fileWriter.write(System.lineSeparator());
-        fileWriter.write("是的，哈哈哈哈");
-        fileWriter.close();
-        Runtime.getRuntime().exec("notepad " + file.getCanonicalPath());
+////        writeByChar(file, s);
+//
+//
+//        File file = new File("." + File.separator + "sql.sql");
+//        String s = "学习好好好";
+//        FileWriter fileWriter = new FileWriter(file, true);
+//        fileWriter.write(System.lineSeparator());
+//        fileWriter.write("是的，哈哈哈哈");
+//        fileWriter.close();
+//        Runtime.getRuntime().exec("notepad " + file.getCanonicalPath());
     }
 
     /**
@@ -61,6 +63,48 @@ public class FileOperation {
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }
+
+
+    /**
+     * 使用字节流读文件
+     *
+     * @param dir
+     * @return
+     * @throws IOException
+     */
+    private static void readFileUseByte(File dir) throws IOException {
+        /*
+         * 1、File对象还是Object对象
+         * 2、流的方向
+         * 3、使用字节流还是字符流
+         */
+        FileInputStream fileInputStream = new FileInputStream(dir);
+        byte[] bytes = new byte[(int) dir.length()];
+        fileInputStream.read(bytes);
+        System.out.println(new String(String.valueOf(fileInputStream)));
+        fileInputStream.close();
+    }
+
+    /**
+     * 使用字符流读文件
+     *
+     * @param file
+     * @return
+     * @throws IOException
+     */
+    private static void readFileUseChar(File file) throws IOException {
+        /*
+         * 1、File对象还是Object对象
+         * 2、流的方向
+         * 3、使用字节流还是字符流
+         */
+        FileReader fileReader = new FileReader(file);
+        char[] chars = new char[(int) file.length()];
+        fileReader.read(chars);
+        System.out.println(new String(chars));
+        fileReader.close();
+    }
+
 
     /**
      * 判断文件是否存在
@@ -98,46 +142,6 @@ public class FileOperation {
                 System.out.println("[是文件==>>>>>>]" + file.getCanonicalPath());
             }
         }
-    }
-
-    /**
-     * 使用字节流读文件
-     *
-     * @param dir
-     * @return
-     * @throws IOException
-     */
-    private static String readFileUseByte(File dir) throws IOException {
-        /*
-         * 1、File对象还是Object对象
-         * 2、流的方向
-         * 3、使用字节流还是字符流
-         */
-        FileInputStream fileInputStream = new FileInputStream(dir);
-        byte[] bytes = new byte[(int) dir.length()];
-        fileInputStream.read(bytes);
-        fileInputStream.close();
-        return new String(bytes);
-    }
-
-    /**
-     * 使用字符流读文件
-     *
-     * @param file
-     * @return
-     * @throws IOException
-     */
-    private static String readFileUseChar(File file) throws IOException {
-        /*
-         * 1、File对象还是Object对象
-         * 2、流的方向
-         * 3、使用字节流还是字符流
-         */
-        FileReader fileReader = new FileReader(file);
-        char[] chars = new char[(int) file.length()];
-        fileReader.read();
-        fileReader.close();
-        return new String(chars);
     }
 
 }
