@@ -73,9 +73,8 @@ public class SwaggerConfig {
                 .select()
                 // 对所有api进行监控
                 .apis(RequestHandlerSelectors.any())
-                //不显示错误的接口地址
-                // 错误路径不监控
-                .paths(Predicates.not(PathSelectors.regex("/error.*")))
+                //不显示错误的接口地址 错误路径不监控
+                .paths(Predicates.not(PathSelectors.regex("error.*")))
                 // 对根下所有路径进行监控
                 .paths(PathSelectors.regex("/.*"))
                 .build();

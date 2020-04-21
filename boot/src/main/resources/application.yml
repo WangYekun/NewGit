@@ -25,3 +25,7 @@ logging:
 # 配置端口
 server:
   port: 8081
+
+  # swagger config
+  swagger:
+    enabled: true                                  # 是否启用swagger

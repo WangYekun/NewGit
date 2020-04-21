@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.io.File;
 import java.util.Date;
 
 
@@ -14,17 +13,16 @@ import java.util.Date;
 class BootApplicationTests {
 
     @Autowired
-    private BolgMapper bl;
+    private BolgMapper bolgMapper;
 
     @Test
     void contextLoads() {
-
         Bolg bolg = new Bolg();
         bolg.setId("34234");
         bolg.setAuthor("1");
         bolg.setTitle("111111111");
         bolg.setCreatTime(new Date());
-        bl.insertSelective(bolg);
+        bolgMapper.insertSelective(bolg);
     }
 
 }
