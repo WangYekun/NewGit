@@ -46,7 +46,6 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .groupName("WangYeKun")
-                .pathMapping("/")
                 // 选择那些路径和api会生成document
                 .select()
                 // 对所有api进行监控
