@@ -13,7 +13,7 @@ import java.util.Map;
  * @author Mark
  * @version 1.0
  * @date 2020/4/22 18:10
- * @description 人类
+ * @description 个人类
  */
 @Data
 @Component
@@ -36,4 +36,5 @@ public class Person {
     private Dog dog;
 
     private Boolean happy;
+
 }

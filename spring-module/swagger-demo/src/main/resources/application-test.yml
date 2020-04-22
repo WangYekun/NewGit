@@ -22,7 +22,22 @@ logging:
   level:
     com.wang.swagger.demo: debug
 server:
-  port: 8082
+  port: 8083
 
-# 查看是否生效配置文件
-debug: true
+# 对象配置
+person:
+  name: 名称
+  sex: 男
+  age: 19
+  birth: 2020/01/12
+  lists:
+    - 这是lists1
+    - 这是lists2
+    - 这是lists3
+  map: {k1: v1,k2: v2}
+  happy: true
+  Dog:
+    name: 小狗
+    sex: 男
+
+

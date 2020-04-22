@@ -5,6 +5,8 @@ import com.wang.swagger.demo.service.StudentService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -14,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
  * @description 学生控制类
  */
 @Api(value = "学生控制类", tags = "学生控制类")
-@RestController
+@Controller
 @RequestMapping(value = "/hello")
 public class HelloController {
 
@@ -38,6 +40,13 @@ public class HelloController {
     @ApiOperation(value = "根据学生id查询学生")
     public Student save(@PathVariable Integer id) {
         return studentService.selectByPrimaryKey(id);
+    }
+
+    @GetMapping(value = "/testThymeleaf")
+    @ApiOperation(value = "测试模板")
+    public String testThymeleaf(Model model) {
+        model.addAttribute("msg", "hello thymeleaf");
+        return "test";
     }
 
 }

@@ -8,30 +8,25 @@
         <result column="tid" jdbcType="INTEGER" property="tid"/>
     </resultMap>
     <sql id="Base_Column_List">
-        <!--@mbg.generated-->
         id, `name`, tid
     </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-        <!--@mbg.generated-->
         select
         <include refid="Base_Column_List"/>
         from student
         where id = #{id,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-        <!--@mbg.generated-->
         delete from student
         where id = #{id,jdbcType=INTEGER}
     </delete>
     <insert id="insert" parameterType="com.wang.swagger.demo.entity.Student">
-        <!--@mbg.generated-->
         insert into student (id, `name`, tid
         )
         values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{tid,jdbcType=INTEGER}
         )
     </insert>
     <insert id="insertSelective" parameterType="com.wang.swagger.demo.entity.Student">
-        <!--@mbg.generated-->
         insert into student
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -57,7 +52,6 @@
         </trim>
     </insert>
     <update id="updateByPrimaryKeySelective" parameterType="com.wang.swagger.demo.entity.Student">
-        <!--@mbg.generated-->
         update student
         <set>
             <if test="name != null">
@@ -70,7 +64,6 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.wang.swagger.demo.entity.Student">
-        <!--@mbg.generated-->
         update student
         set `name` = #{name,jdbcType=VARCHAR},
         tid = #{tid,jdbcType=INTEGER}

@@ -5,8 +5,6 @@ import com.google.common.collect.Lists;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import org.springframework.core.env.Environment;
-import org.springframework.core.env.Profiles;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -23,33 +21,15 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @Configuration
 @EnableSwagger2
-@Profile("dev")
 public class SwaggerConfig {
 
     @Bean
-    public Docket docket(Environment environment) {
-
-        Profiles of = Profiles.of("dev");
-        boolean b = environment.acceptsProfiles(of);
-
+    public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("WangYeKun")
-                // enable to environment config
-                .enable(b)
                 .apiInfo(apiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.wang.swagger.demo.rest"))
-                .paths(Predicates.not(PathSelectors.regex("/error.*")))
-                .build();
-    }
-
-    @Bean
-    public Docket docketTwo() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("WangYeKunTwo")
-                .apiInfo(apiInfo())
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.wang.swagger.demo.controller"))
                 .paths(Predicates.not(PathSelectors.regex("/error.*")))
                 .build();
     }
@@ -65,4 +45,5 @@ public class SwaggerConfig {
                 , "https://blog.wangyekun.top/"
                 , Lists.newArrayList());
     }
+
 }
