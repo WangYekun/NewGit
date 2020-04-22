@@ -21,5 +21,37 @@ mybatis:
 logging:
   level:
     com.wang.swagger.demo: debug
-server:
-  port: 8080
+
+## 端口号
+#server:
+#  port: 8080
+#
+## K-V
+#student:
+#  name: 1
+#  age: 1
+#
+#student1: {name: q,age: 2}
+#
+#student2:
+#  - dog
+#  - big
+#
+#student3: [dog,big]
+
+## 注入到实体类赋值
+person:
+  name: wang
+  sex: 男
+  age: 19
+  birth: 2020/01/01 01:11:11
+  map: {k1: 1,k2: 2}
+  lists:
+    - like
+    - dislike
+  happy: false
+  dog:
+    name: wangwang
+    sex: 男
+
+

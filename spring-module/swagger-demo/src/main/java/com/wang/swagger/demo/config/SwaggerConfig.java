@@ -30,9 +30,7 @@ public class SwaggerConfig {
     public Docket docket(Environment environment) {
 
         Profiles of = Profiles.of("dev");
-
         boolean b = environment.acceptsProfiles(of);
-        System.out.println("b = " + b);
 
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("WangYeKun")
