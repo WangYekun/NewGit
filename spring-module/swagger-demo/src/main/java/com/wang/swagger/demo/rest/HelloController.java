@@ -25,12 +25,14 @@ public class HelloController {
 
     @GetMapping(value = "/test")
     @ApiOperation(value = "测试springboot项目是否启动成功")
+    @ResponseBody
     public String hello() {
-        return "hello";
+        return "springboot is started";
     }
 
     @PostMapping(value = "/save")
     @ApiOperation(value = "新增学生")
+    @ResponseBody
     public int save(@RequestBody Student student) {
         return studentService.insert(student);
     }
@@ -38,6 +40,7 @@ public class HelloController {
 
     @GetMapping(value = "/getStudentById/{id}")
     @ApiOperation(value = "根据学生id查询学生")
+    @ResponseBody
     public Student save(@PathVariable Integer id) {
         return studentService.selectByPrimaryKey(id);
     }
@@ -45,10 +48,9 @@ public class HelloController {
     @GetMapping(value = "/testThymeleaf")
     @ApiOperation(value = "测试模板")
     public String testThymeleaf(Model model) {
-        model.addAttribute("msg", "hello thymeleaf");
+        model.addAttribute("message", "thymeleaf");
         return "test";
     }
-
 }
 
 
