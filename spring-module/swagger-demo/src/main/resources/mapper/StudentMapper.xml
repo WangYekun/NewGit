@@ -8,7 +8,9 @@
         <result column="tid" jdbcType="INTEGER" property="tid"/>
     </resultMap>
     <sql id="Base_Column_List">
-        id, `name`, tid
+            id,
+            `name`,
+            tid
     </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
@@ -69,4 +71,8 @@
         tid = #{tid,jdbcType=INTEGER}
         where id = #{id,jdbcType=INTEGER}
     </update>
+    <select id="getStudentList" resultMap="BaseResultMap">
+        select *
+        from student;
+    </select>
 </mapper>

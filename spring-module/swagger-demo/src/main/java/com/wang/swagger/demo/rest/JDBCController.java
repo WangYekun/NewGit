@@ -23,27 +23,30 @@ import java.util.Map;
 @RestController
 public class JDBCController {
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
+
+    public JDBCController(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     @ApiOperation(value = "JDBC添加操作", notes = "JDBC添加操作")
-    @GetMapping(value = "/addSql")
-    public int addSql() {
-        String s = "INSERT INTO student.student(id, name, tid) VALUES (131,'1','7657')";
+    @GetMapping(value = "/saveSqlByJDBC")
+    public int saveSql() {
+        String s = "INSERT INTO user(id, name, pwd) VALUES (1213,'1','7657')";
         return jdbcTemplate.update(s);
     }
 
     @ApiOperation(value = "JDBC删除操作", notes = "JDBC删除操作")
-    @GetMapping(value = "/deleteSql/{id}")
+    @GetMapping(value = "/deleteSqlByJDBC/{id}")
     public int deleteSql(@PathVariable(value = "id") Integer id) {
-        String s = "DELETE FROM student.student WHERE id =" + id;
+        String s = "DELETE FROM user WHERE id =" + id;
         return jdbcTemplate.update(s);
     }
 
     @ApiOperation(value = "JDBC更新操作", notes = "JDBC更新操作")
-    @GetMapping(value = "/editSql/{id}")
+    @GetMapping(value = "/editSqlByJDBC/{id}")
     public int editSql(@PathVariable(value = "id") Integer id) {
-        String s = "UPDATE student.student SET name=?,tid =? where id=" + id;
+        String s = "UPDATE user SET name=?,pwd =? where id=" + id;
         Object[] objects = new Object[2];
         objects[0] = "小明2";
         objects[1] = "12873123";
@@ -52,7 +55,7 @@ public class JDBCController {
 
 
     @ApiOperation(value = "JDBC查询操作", notes = "JDBC查询操作")
-    @GetMapping(value = "/getSql")
+    @GetMapping(value = "/getSqlByJDBC")
     public List<Map<String, Object>> getSql() {
         String s = "SELECT * FROM student";
         return jdbcTemplate.queryForList(s);

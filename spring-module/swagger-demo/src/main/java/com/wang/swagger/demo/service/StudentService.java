@@ -2,8 +2,9 @@ package com.wang.swagger.demo.service;
 
 import com.wang.swagger.demo.entity.Student;
 import com.wang.swagger.demo.mapper.StudentMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author Mark
@@ -15,8 +16,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class StudentService {
 
-    @Autowired
-    private StudentMapper studentMapper;
+    private final StudentMapper studentMapper;
+
+    public StudentService(StudentMapper studentMapper) {
+        this.studentMapper = studentMapper;
+    }
 
 
     public int deleteByPrimaryKey(Integer id) {
@@ -48,4 +52,7 @@ public class StudentService {
         return studentMapper.updateByPrimaryKey(record);
     }
 
+    public List<Student> getStudentList() {
+        return studentMapper.getStudentList();
+    }
 }
