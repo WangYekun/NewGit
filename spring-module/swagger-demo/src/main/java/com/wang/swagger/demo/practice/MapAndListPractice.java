@@ -10,6 +10,7 @@ import java.util.*;
  * @description Map和List练习
  */
 public class MapAndListPractice {
+
     public static void main(String[] args) {
         Map<String, Object> map = new HashMap<>(16);
         // 增
@@ -98,4 +99,5 @@ public class MapAndListPractice {
             System.out.println(" <<<<<<<<=>>>>>>>> " + objectMap);
         }
     }
+
 }
