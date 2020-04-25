@@ -4,7 +4,6 @@ import com.wang.swagger.demo.entity.Student;
 import com.wang.swagger.demo.service.StudentService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,8 +19,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/hello")
 public class HelloController {
 
-    @Autowired
-    private StudentService studentService;
+    private final StudentService studentService;
+
+    public HelloController(StudentService studentService) {
+        this.studentService = studentService;
+    }
 
     @GetMapping(value = "/test")
     @ApiOperation(value = "测试springboot项目是否启动成功")

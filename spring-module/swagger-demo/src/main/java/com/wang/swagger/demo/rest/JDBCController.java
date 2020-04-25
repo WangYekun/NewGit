@@ -2,7 +2,6 @@ package com.wang.swagger.demo.rest;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -52,7 +51,6 @@ public class JDBCController {
         objects[1] = "12873123";
         return jdbcTemplate.update(s, objects);
     }
-
 
     @ApiOperation(value = "JDBC查询操作", notes = "JDBC查询操作")
     @GetMapping(value = "/getSqlByJDBC")

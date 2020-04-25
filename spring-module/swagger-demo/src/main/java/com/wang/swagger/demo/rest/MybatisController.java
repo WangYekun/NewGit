@@ -25,10 +25,16 @@ public class MybatisController {
         this.studentService = studentService;
     }
 
-    @PostMapping(value = "/save")
+    @PostMapping(value = "/insert")
     @ApiOperation(value = "新增学生")
-    public int save(@RequestBody Student student) {
+    public int insert(@RequestBody Student student) {
         return studentService.insert(student);
+    }
+
+    @PostMapping(value = "/insertSelective")
+    @ApiOperation(value = "新增学生")
+    public int insertSelective(@RequestBody Student student) {
+        return studentService.insertSelective(student);
     }
 
     @GetMapping(value = "/getStudentById/{id}")
