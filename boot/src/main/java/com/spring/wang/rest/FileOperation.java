@@ -1,6 +1,8 @@
 package com.spring.wang.rest;
 
 import java.io.*;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 /**
  * @author Mark
@@ -59,6 +61,18 @@ public class FileOperation {
      */
     private static void writeByChar(File file, String s) throws IOException {
         FileWriter fileOutputStream = new FileWriter(file);
+        try (FileInputStream fis = new FileInputStream(file);
+           ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(file))) {
+            zos.putNextEntry(new ZipEntry(file.getName()));
+            int len;
+            byte[] buffer = new byte[4096];
+            while ((len = fis.read(buffer)) > 0) {
+                zos.write(buffer, 0, len);
+            }
+            zos.closeEntry();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         char[] bytes = s.toCharArray();
         fileOutputStream.write(bytes);
         fileOutputStream.close();
