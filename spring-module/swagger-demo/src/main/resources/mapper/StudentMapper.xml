@@ -22,7 +22,7 @@
         delete from student
         where id = #{id,jdbcType=INTEGER}
     </delete>
-    <insert id="insert" parameterType="com.wang.swagger.demo.entity.Student">
+    <insert id="insert" parameterType="java.util.Map" >
         insert into student (id, `name`, tid
         )
         values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{tid,jdbcType=INTEGER}

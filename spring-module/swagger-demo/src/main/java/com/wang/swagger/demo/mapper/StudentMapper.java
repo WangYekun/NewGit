@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Mark
@@ -18,7 +19,7 @@ public interface StudentMapper {
 
     int deleteByPrimaryKey(Integer id);
 
-    int insert(Student record);
+    int insert(Map<String, Object> student);
 
     int insertSelective(Student record);
 

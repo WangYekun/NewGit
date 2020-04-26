@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Mark
@@ -26,8 +27,8 @@ public class MybatisController {
     }
 
     @PostMapping(value = "/insert")
-    @ApiOperation(value = "新增学生")
-    public int insert(@RequestBody Student student) {
+    @ApiOperation(value = "Use Map to up param")
+    public int insert(@RequestBody Map<String, Object> student) {
         return studentService.insert(student);
     }
 
@@ -52,6 +53,11 @@ public class MybatisController {
     @GetMapping(value = "/getStudentList")
     @ApiOperation(value = "查询全部学生")
     public List<Student> getStudentList() {
+        List<Student> studentList = studentService.getStudentList();
+        System.out.println("studentList.get(1).getName() = " + studentList.get(1).getName());
+        System.out.println("studentList.get(2).getName() = " + studentList.get(2).getName());
+        System.out.println("studentList.get(3).getName() = " + studentList.get(3).getName());
+        System.out.println("studentList.get(4).getName() = " + studentList.get(4).getName());
         return studentService.getStudentList();
     }
 

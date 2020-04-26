@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 /**
  * @author Mark
  * @version 1.0
@@ -35,7 +37,7 @@ public class HelloController {
     @PostMapping(value = "/save")
     @ApiOperation(value = "新增学生")
     @ResponseBody
-    public int save(@RequestBody Student student) {
+    public int save(@RequestBody Map<String, Object> student) {
         return studentService.insert(student);
     }
 

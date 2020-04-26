@@ -2,9 +2,12 @@ package com.wang.swagger.demo.service;
 
 import com.wang.swagger.demo.entity.Student;
 import com.wang.swagger.demo.mapper.StudentMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Mark
@@ -16,6 +19,8 @@ import java.util.List;
 @Service
 public class StudentService {
 
+    private static final Logger log = LoggerFactory.getLogger(StudentService.class);
+
     private final StudentMapper studentMapper;
 
     public StudentService(StudentMapper studentMapper) {
@@ -26,8 +31,15 @@ public class StudentService {
         return studentMapper.deleteByPrimaryKey(id);
     }
 
-    public int insert(Student record) {
-        return studentMapper.insert(record);
+    /**
+     * transaction is use public method and use begin to end.
+     *
+     * @param student Student entity for map to use how to do it.
+     * @return insert success flag(int)
+     */
+    public int insert(Map<String, Object> student) {
+        log.debug("#### insert to student #####,[{}]", student);
+        return studentMapper.insert(student);
     }
 
     public int insertSelective(Student record) {
