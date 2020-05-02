@@ -5,10 +5,10 @@ import com.spring.wang.service.StudentService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Mark
@@ -24,9 +24,7 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    // @ApiImplicitParams 用来定义接口参数，并指定描述的，
-    // @ApiResponses  用来定义添加额外的响应值，与配置类中的全局响应功能一致。
-    @ApiOperation(value="创建新的用户", notes="根据User对象创建用户")
+    @ApiOperation(value = "创建新的用户", notes = "根据User对象创建用户")
     @RequestMapping(value = "/selectByPrimaryKey/{id}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
     public Student selectByPrimaryKey(@PathVariable Integer id) {
         return studentService.selectByPrimaryKey(id);
@@ -58,8 +56,19 @@ public class StudentController {
 
     @ApiOperation("新增接口")
     @RequestMapping(value = "/insert", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-    public int insert(Student student) {
+    public int insert(@RequestBody Student student) {
         return studentService.insert(student);
+    }
+
+    public static void main(String[] args) { 
+        Map<String, Object> objectObjectHashMap = new HashMap<>(16);
+        objectObjectHashMap.put("1",1);
+        objectObjectHashMap.put("2",1);
+        objectObjectHashMap.put("3",1);
+        objectObjectHashMap.put("4",1);
+        objectObjectHashMap.put("5",1);
+        objectObjectHashMap.put("6",1);
+        System.out.println("objectObjectHashMap.toString() = " + objectObjectHashMap.toString());
     }
 
 }
