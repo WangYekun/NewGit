@@ -1,4 +1,4 @@
-package wang.demo.redis.redis;
+package wang.demo.redis.redis.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.aliyuncs.CommonRequest;
@@ -8,36 +8,39 @@ import com.aliyuncs.IAcsClient;
 import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
+import java.util.Map;
 
-@SpringBootTest
-class RedisApplicationTests {
+/**
+ * @author Mark
+ * @version 1.0
+ * @date 2020/5/3 11:03
+ * @description 短信发送服务
+ */
+@Service
+public class SmsSendService {
 
-    @Test
-    void contextLoads() {
-        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "LTAI4G1dLJia1RPkXJrdawp6", "0I5ReY3OiVALY83IkwE9dNKtAq2Ahx");
+    public boolean sendSms(String phone, String templateCode, Map<String, Object> codeMap) {
+        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "//", "//");
         IAcsClient client = new DefaultAcsClient(profile);
         CommonRequest request = new CommonRequest();
         request.setMethod(MethodType.POST);
         request.setDomain("dysmsapi.aliyuncs.com");
         request.setVersion("2017-05-25");
         request.setAction("SendSms");
-        request.putQueryParameter("PhoneNumbers", "17866630618");
+        request.putQueryParameter("PhoneNumbers", phone);
         request.putQueryParameter("SignName", "是我说产品");
-        request.putQueryParameter("TemplateCode", "SMS_189521598");
-        HashMap<Object, Object> mapSms = new HashMap<>();
-        mapSms.put("code", 1231);
-        request.putQueryParameter("TemplateParam", JSONObject.toJSONString(mapSms));
+        request.putQueryParameter("TemplateCode", templateCode);
+        request.putQueryParameter("TemplateParam", JSONObject.toJSONString(codeMap));
         try {
             CommonResponse response = client.getCommonResponse(request);
             System.out.println(response.getData());
+            return response.getHttpResponse().isSuccess();
         } catch (ClientException e) {
             e.printStackTrace();
         }
+        return false;
     }
+
 }
-
-
