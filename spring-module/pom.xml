@@ -13,6 +13,7 @@
         <module>spring-03</module>
         <module>spring-01-aop</module>
         <module>spring-tx</module>
+        <module>poi-excel</module>
     </modules>
     <packaging>pom</packaging>
     <properties>
