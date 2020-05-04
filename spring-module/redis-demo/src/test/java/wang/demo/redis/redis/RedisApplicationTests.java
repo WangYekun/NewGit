@@ -9,12 +9,18 @@ import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
+import wang.demo.redis.redis.entity.UserStudent;
 
 import java.util.HashMap;
 
 @SpringBootTest
 class RedisApplicationTests {
+
+    @Autowired
+    private RedisTemplate<String, Object> redisTemplate;
 
     @Test
     void contextLoads() {
@@ -37,6 +43,23 @@ class RedisApplicationTests {
         } catch (ClientException e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    void testRedis() {
+        // 1. 操作字符串 基本操作都有(设置值和获取值)
+        redisTemplate.opsForValue().set("wang", "业坤学习java");
+        String wang = (String) redisTemplate.opsForValue().get("wang");
+        System.out.println(wang);
+    }
+
+
+    @Test
+    void testUserStudent() {
+        UserStudent userStudent = new UserStudent("王业坤", 23);
+        redisTemplate.opsForValue().set("user", userStudent);
+        Object wang = redisTemplate.opsForValue().get("user");
+        System.out.println(wang);
     }
 }
 
