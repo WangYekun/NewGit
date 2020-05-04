@@ -11,9 +11,4 @@
 
     <artifactId>spring-tx</artifactId>
     <packaging>pom</packaging>
-    <modules>
-        <module>../read-pdf</module>
-    </modules>
-
-
 </project>

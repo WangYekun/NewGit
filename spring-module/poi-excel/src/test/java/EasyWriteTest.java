@@ -15,7 +15,6 @@ public class EasyWriteTest {
 
     private static final String PATH = "D:\\git\\spring-study\\spring-study\\spring-module\\poi-excel\\";
 
-
     private List<DemoData> data() {
         List<DemoData> list = new ArrayList<DemoData>();
         for (int i = 0; i < 10; i++) {
