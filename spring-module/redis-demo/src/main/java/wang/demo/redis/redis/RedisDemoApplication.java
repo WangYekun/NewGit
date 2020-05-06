@@ -7,9 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author lenovo
  */
 @SpringBootApplication
-public class RedisApplication {
+public class RedisDemoApplication {
     public static void main(String[] args) {
-        SpringApplication.run(RedisApplication.class, args);
+        SpringApplication.run(RedisDemoApplication.class, args);
         System.out.println("################# RedisApplication is started ##########################");
 
     }

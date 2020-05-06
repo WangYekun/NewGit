@@ -9,11 +9,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @description 启动类
  */
 @SpringBootApplication
-public class DemoApplication {
+public class SwaggerDemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
-        System.out.println("################# DemoApplication is started ####################");
+        SpringApplication.run(SwaggerDemoApplication.class, args);
+        System.out.println("################# SwaggerDemoApplication is started ####################");
     }
 
 }
