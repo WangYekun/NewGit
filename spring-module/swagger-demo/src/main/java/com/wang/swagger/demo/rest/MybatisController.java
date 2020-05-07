@@ -1,5 +1,6 @@
 package com.wang.swagger.demo.rest;
 
+import com.alibaba.fastjson.JSON;
 import com.wang.swagger.demo.entity.Student;
 import com.wang.swagger.demo.service.StudentService;
 import io.swagger.annotations.Api;
@@ -54,10 +55,7 @@ public class MybatisController {
     @ApiOperation(value = "查询全部学生")
     public List<Student> getStudentList() {
         List<Student> studentList = studentService.getStudentList();
-        System.out.println("studentList.get(1).getName() = " + studentList.get(1).getName());
-        System.out.println("studentList.get(2).getName() = " + studentList.get(2).getName());
-        System.out.println("studentList.get(3).getName() = " + studentList.get(3).getName());
-        System.out.println("studentList.get(4).getName() = " + studentList.get(4).getName());
+        System.out.println(" ######获取最前面的一条学生记录###### " + JSON.toJSON(studentList.get(0)));
         return studentService.getStudentList();
     }
 
