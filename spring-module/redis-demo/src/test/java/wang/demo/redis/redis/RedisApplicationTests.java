@@ -24,7 +24,7 @@ class RedisApplicationTests {
 
     @Test
     void contextLoads() {
-        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "LTAI4G1dLJia1RPkXJrdawp6", "0I5ReY3OiVALY83IkwE9dNKtAq2Ahx");
+        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "", "");
         IAcsClient client = new DefaultAcsClient(profile);
         CommonRequest request = new CommonRequest();
         request.setMethod(MethodType.POST);
