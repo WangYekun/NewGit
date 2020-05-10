@@ -1,6 +1,7 @@
 package study.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,9 +23,9 @@ public class UserController {
 
     /**
      * @param id 根据用户id获取用户数据
-     * @return
+     * @return 获取用户信息
      */
-    @RequestMapping(value = "/get/{id}")
+    @GetMapping(value = "/get/{id}")
     public User getUser(@PathVariable(value = "id") Integer id) {
         return userService.selectByPrimaryKey(id);
     }
