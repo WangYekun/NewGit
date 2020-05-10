@@ -1,6 +1,6 @@
 package study.dao;
 
-import study.dao.Bolg;
+import study.pojo.Bolg;
 
 /**
  * @author Mark
@@ -8,8 +8,8 @@ import study.dao.Bolg;
  * @date 2020/4/15 0:41
  * @description ${description}
  */
-
 public interface BolgMapper {
+
     int insert(Bolg record);
 
     int insertSelective(Bolg record);

@@ -1,9 +1,10 @@
 package study.service;
 
 import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
-import study.dao.User;
 import study.dao.UserMapper;
+import study.pojo.User;
+
+import javax.annotation.Resource;
 
 /**
  * @author Mark

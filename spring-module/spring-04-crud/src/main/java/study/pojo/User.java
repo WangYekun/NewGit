@@ -1,4 +1,4 @@
-package study.dao;
+package study.pojo;
 
 import lombok.Data;
 
@@ -6,7 +6,7 @@ import lombok.Data;
  * @author Mark
  * @version 1.0
  * @date 2020/4/15 0:41
- * @description ${description}
+ * @description 用户
  */
 
 @Data

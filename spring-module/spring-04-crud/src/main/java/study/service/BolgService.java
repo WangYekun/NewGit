@@ -2,7 +2,7 @@ package study.service;
 
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
-import study.dao.Bolg;
+import study.pojo.Bolg;
 import study.dao.BolgMapper;
 
 /**

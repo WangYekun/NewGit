@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="study.dao.TeacherMapper">
-  <resultMap id="BaseResultMap" type="study.dao.Teacher">
+  <resultMap id="BaseResultMap" type="study.pojo.Teacher">
     <!--@mbg.generated-->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
@@ -22,12 +22,12 @@
     delete from teacher
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="study.dao.Teacher">
+  <insert id="insert" parameterType="study.pojo.Teacher">
     <!--@mbg.generated-->
     insert into teacher (id, `name`)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="study.dao.Teacher">
+  <insert id="insertSelective" parameterType="study.pojo.Teacher">
     <!--@mbg.generated-->
     insert into teacher
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -47,7 +47,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="study.dao.Teacher">
+  <update id="updateByPrimaryKeySelective" parameterType="study.pojo.Teacher">
     <!--@mbg.generated-->
     update teacher
     <set>
@@ -57,7 +57,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="study.dao.Teacher">
+  <update id="updateByPrimaryKey" parameterType="study.pojo.Teacher">
     <!--@mbg.generated-->
     update teacher
     set `name` = #{name,jdbcType=VARCHAR}

@@ -1,4 +1,4 @@
-package study.dao;
+package study.pojo;
 
 import lombok.Data;
 

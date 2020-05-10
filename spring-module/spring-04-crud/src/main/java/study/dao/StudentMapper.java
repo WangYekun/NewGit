@@ -1,6 +1,6 @@
 package study.dao;
 
-import study.dao.Student;
+import study.pojo.Student;
 
 /**
  * @author Mark

@@ -1,50 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="study.dao.BolgMapper">
-  <resultMap id="BaseResultMap" type="study.dao.Bolg">
-    <!--@mbg.generated-->
-    <result column="id" jdbcType="VARCHAR" property="id" />
-    <result column="title" jdbcType="VARCHAR" property="title" />
-    <result column="author" jdbcType="VARCHAR" property="author" />
-    <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime" />
-  </resultMap>
-  <insert id="insert" parameterType="study.dao.Bolg">
-    <!--@mbg.generated-->
-    insert into bolg (id, title, author, 
-      creat_time)
-    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, 
-      #{creatTime,jdbcType=TIMESTAMP})
-  </insert>
-  <insert id="insertSelective" parameterType="study.dao.Bolg">
-    <!--@mbg.generated-->
-    insert into bolg
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="title != null">
-        title,
-      </if>
-      <if test="author != null">
-        author,
-      </if>
-      <if test="creatTime != null">
-        creat_time,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=VARCHAR},
-      </if>
-      <if test="title != null">
-        #{title,jdbcType=VARCHAR},
-      </if>
-      <if test="author != null">
-        #{author,jdbcType=VARCHAR},
-      </if>
-      <if test="creatTime != null">
-        #{creatTime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
+    <resultMap id="BaseResultMap" type="study.pojo.Bolg">
+        <result column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="author" jdbcType="VARCHAR" property="author"/>
+        <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="study.pojo.Bolg">
+        insert into bolg (id, title, author,
+        creat_time)
+        values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR},
+        #{creatTime,jdbcType=TIMESTAMP})
+    </insert>
+
+    <insert id="insertSelective" parameterType="study.pojo.Bolg">
+        insert into bolg
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="title != null">
+                title,
+            </if>
+            <if test="author != null">
+                author,
+            </if>
+            <if test="creatTime != null">
+                creat_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="title != null">
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="author != null">
+                #{author,jdbcType=VARCHAR},
+            </if>
+            <if test="creatTime != null">
+                #{creatTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
 </mapper>

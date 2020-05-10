@@ -1,7 +1,8 @@
-package study.dao;
+package study.pojo;
+
+import lombok.Data;
 
 import java.util.Date;
-import lombok.Data;
 
 /**
  * @author Mark

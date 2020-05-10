@@ -1,6 +1,6 @@
 package study.dao;
 
-import study.dao.User;
+import study.pojo.User;
 
 /**
  * @author Mark
