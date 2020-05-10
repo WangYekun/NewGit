@@ -77,7 +77,7 @@ public class TryCatchFinallyPractice {
      *
      * @return 字符串
      */
-    public static String defineException() {
+    private static String defineException() {
         /*1 编写的异常类然后继承继承运行时异常类 RuntimeException
           2 编写所属异常消息message
           3 调用所属异常类并且编写返回消息message即可
