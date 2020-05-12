@@ -12,7 +12,7 @@ import java.util.Map;
 public class NetworkPractice {
 
     /**
-     * TODO 可以看出 entrySet 的性能比 keySet 的性能高出了一倍之多，因此我们应该尽量使用 entrySet  来实现 Map 集合的遍历
+     * TODO 可以看出 entrySet 的性能比 keySet 的性能高出了一倍之多，尽量使用 entrySet  来实现 Map 集合的遍历
      *
      * @param args 启动参数
      */
