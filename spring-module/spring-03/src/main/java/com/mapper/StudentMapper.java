@@ -10,6 +10,7 @@ import com.domain.Student;
  */
 
 public interface StudentMapper {
+
     int deleteByPrimaryKey(Integer id);
 
     int insert(Student record);

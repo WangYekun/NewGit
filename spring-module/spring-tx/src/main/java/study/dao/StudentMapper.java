@@ -7,6 +7,7 @@ package study.dao;
  * @description ${description}
  */
 public interface StudentMapper {
+
     int deleteByPrimaryKey(Integer id);
 
     int insert(Student record);
@@ -18,4 +19,5 @@ public interface StudentMapper {
     int updateByPrimaryKeySelective(Student record);
 
     int updateByPrimaryKey(Student record);
+
 }

@@ -2,12 +2,12 @@ package com.domain;
 
 /**
  * @author Mark
- * @date  2020/4/11 13:52
  * @version 1.0
+ * @date 2020/4/11 13:52
  * @description ${description}
  */
-
 public class User {
+
     private Integer id;
 
     private String name;
