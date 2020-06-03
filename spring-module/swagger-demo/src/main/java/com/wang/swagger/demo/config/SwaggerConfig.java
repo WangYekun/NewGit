@@ -27,13 +27,15 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Import(BeanValidatorPluginsConfiguration.class)
 public class SwaggerConfig {
 
+    private final static String BASE_PACKAGE = "com.wang.swagger.demo.rest";
+
     @Bean
     public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("WangYeKun")
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.wang.swagger.demo.rest"))
+                .apis(RequestHandlerSelectors.basePackage(BASE_PACKAGE))
                 .paths(Predicates.not(PathSelectors.regex("/error.*")))
                 .build();
     }
